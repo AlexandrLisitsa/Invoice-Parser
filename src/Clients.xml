@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Clients>
+	<Client name="Восход">
+		<location>z:\Счета\01_Априори\Восход\</location>
+	</Client>
+	<Client name="Париж">
+		<location>z:\Счета\01_Априори\Париж\</location>
+	</Client>
+	<Client name="Сливки">
+		<location>z:\Счета\01_Априори\Сливки\</location>
+	</Client>
+	<Client name="Утка">
+		<location>z:\Счета\01_Априори\Утка\</location>
+	</Client>
+	<Client name="Априори">
+		<location>z:\Счета\01_Априори\Центр\</location>
+	</Client>
+	<Client name="АТЛ">
+		<location>z:\Счета\02_АТЛ\</location>
+	</Client>
+	<Client name="Поехали">
+		<location>z:\Счета\06_Поехали\</location>
+	</Client>
+	<Client name="Протежэ">
+		<location>z:\Счета\07_Протеже\</location>
+	</Client>
+	<Client name="Экстрапластик">
+		<location>z:\Счета\09_Пластик+\</location>
+	</Client>
+	<Client name="Техноэкос">
+		<location>z:\Счета\21_Техноэкос\</location>
+	</Client>
+	<Client name="Швейка">
+		<location>z:\Счета\22_Швейная Б 2300\10_Акты_швейка\</location>
+	</Client>
+	<Client name="Хотгриль">
+		<location>z:\Счета\24_Хотгриль\</location>
+	</Client>
+	<Client name="Оптидея">
+		<location>z:\Счета\25_Оптидея+\</location>
+	</Client>
+	<Client name="Ангелдент">
+		<location>z:\Счета\26_АнгелДент\</location>
+	</Client>
+	<Client name="Джайпур">
+		<location>z:\Счета\31_Джайпур\</location>
+	</Client>
+	<Client name="Вебтранс">
+		<location>z:\Счета\32_Вебтранс+\</location>
+	</Client>
+	<Client name="Гринвич">
+		<location>z:\Счета\33_Гринвич\</location>
+	</Client>
+	<Client name="Колетт">
+		<location>z:\Счета\34_Коллет\</location>
+	</Client>
+	<Client name="Велики">
+		<location>z:\Счета\35_ВелоФМ\</location>
+	</Client>
+	<Client name="Арколон">
+		<location>z:\Счета\36_Арколон+\</location>
+	</Client>
+	<Client name="Чарли">
+		<location>z:\Счета\37_Чарли\</location>
+	</Client>
+	<Client name="Левел">
+		<location>z:\Счета\38_Левелап\</location>
+	</Client>
+	<Client name="Эдбург">
+		<location>z:\Счета\39_Эдбург\</location>
+	</Client>
+	<Client name="Мыши">
+		<location>z:\Счета\40_Мыши\</location>
+	</Client>
+	<Client name="Либра">
+		<location>z:\Счета\41_Либра зет\</location>
+	</Client>
+	<Client name="Электроснаб">
+		<location>z:\Счета\42_Электропостачбуд\</location>
+	</Client>
+	<Client name="Мегаавто">
+		<location>z:\Счета\43_Мегаавтоинвест+\</location>
+	</Client>
+	<Client name="Сафари">
+		<location>z:\Счета\44_Сафари(оружие)+\</location>
+	</Client>
+	<Client name="Итис">
+		<location>z:\Счета\45_Итис+\</location>
+	</Client>
+	<Client name="Мобиндастри">
+		<location>z:\Счета\51_Мобиндастри\</location>
+	</Client>
+	<Client name="Флаверс">
+		<location>z:\Счета\52_flowers\</location>
+	</Client>
+	<Client name="Импера">
+		<location>z:\Счета\53_Импера\</location>
+	</Client>
+	<Client name="Троя">
+		<location>z:\Счета\54_Троя\</location>
+	</Client>
+	<Client name="ДРС">
+		<location>z:\Счета\55_Drs\</location>
+	</Client>
+	<Client name="Аквапарк">
+		<location>z:\Счета\56_аквапарк\</location>
+	</Client>
+	<Client name="Селена">
+		<location>z:\Счета\57_Селена\</location>
+	</Client>
+	<Client name="Микра">
+		<location>z:\Счета\58_Микра+\</location>
+	</Client>
+	<Client name="Майсток">
+		<location>z:\Счета\59_mystok\</location>
+	</Client>
+	<Client name="Делфиш">
+		<location>z:\Счета\61_Делфиш\</location>
+	</Client>
+	<Client name="КЭН">
+		<location>z:\Счета\62_CAN_invoices@can.ua\</location>
+	</Client>
+	<Client name="Бананы">
+		<location>z:\Счета\63_Бананы\</location>
+	</Client>
+	<Client name="Акма">
+		<location>z:\Счета\65_АКМА\</location>
+	</Client>
+	<Client name="Диекс">
+		<location>z:\Счета\66_Диекс\</location>
+	</Client>
+	<Client name="Алкомаркет">
+		<location>z:\Счета\68_Алкомаркет\</location>
+	</Client>
+	<Client name="Барон">
+		<location>z:\Счета\69_Барон\</location>
+	</Client>
+	<Client name="Камелот">
+		<location>z:\Счета\70_Камелот\</location>
+	</Client>
+</Clients>
