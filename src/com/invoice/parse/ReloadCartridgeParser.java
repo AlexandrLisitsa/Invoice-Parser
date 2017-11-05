@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -40,8 +43,17 @@ public class ReloadCartridgeParser {
 		try {
 			is = new FileInputStream(new File(path));
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Выбери файл с заправками");
+			JFileChooser fc = new JFileChooser();
+			fc.setDialogTitle("Файл заправок");
+			if(fc.showOpenDialog(null)==JFileChooser.APPROVE_OPTION) {
+				try {
+					is = new FileInputStream(new File(fc.getSelectedFile().getAbsolutePath().replace("\\","\\\\")));
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 		Workbook wb = null;
 		try {

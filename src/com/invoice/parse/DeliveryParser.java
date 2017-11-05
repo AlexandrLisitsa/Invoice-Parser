@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -40,8 +43,17 @@ public class DeliveryParser {
 		try {
 			is = new FileInputStream(new File(path));
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Выбери файл с поставками");
+			JFileChooser fc = new JFileChooser();
+			fc.setDialogTitle("Файл поставок");
+			if(fc.showOpenDialog(null)==JFileChooser.APPROVE_OPTION) {
+				try {
+					is = new FileInputStream(new File(fc.getSelectedFile().getAbsolutePath().replace("\\","\\\\")));
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 		Workbook wb = null;
 		try {
@@ -110,54 +122,5 @@ public class DeliveryParser {
 		if (cell.getStringCellValue().equals("В счет")) {
 			invoiceCellCount = cell.getColumnIndex();
 		}
-	}
-
-	public void parse() {
-		FileInputStream is = null;
-		try {
-			is = new FileInputStream(new File("C:\\Users\\wypik\\Desktop\\Поставки оборудования.xls"));
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		Workbook wb = null;
-		try {
-			wb = new HSSFWorkbook(is);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		Sheet sheet = wb.getSheetAt(0);
-		Iterator<Row> it = sheet.iterator();
-		StringBuilder sb = null;
-		int invoiceCellCount = 0;
-		while (it.hasNext()) {
-			Row row = it.next();
-			Iterator<Cell> cells = row.iterator();
-			while (cells.hasNext()) {
-				Cell cell = cells.next();
-				try {
-					if (cell.getStringCellValue().equals("В счет")) {
-						invoiceCellCount = cell.getColumnIndex();
-					}
-					if (cell.getStringCellValue().equals("да") && cell.getColumnIndex() == invoiceCellCount) {
-						Iterator<Cell> cellsT = row.iterator();
-						sb = new StringBuilder();
-						while (cellsT.hasNext()) {
-							Cell tmo = cellsT.next();
-							sb.append(tmo);
-							sb.append("\t");
-							if (tmo.getColumnIndex() == 5) {
-								break;
-							}
-						}
-						System.out.println(sb);
-					}
-				} catch (Exception e) {
-					// TODO: handle exception
-				}
-			}
-		}
-	}
-	
+	}	
 }

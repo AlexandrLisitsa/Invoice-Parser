@@ -17,7 +17,6 @@ import com.invoice.visual.ProgressPage;
 
 public class InvoiceBuilder {
 	
-	private String desktopPath = System.getProperty("user.home") + "\\Desktop\\invoices\\";
 	private String extension =".xls";
 	private String clientName;
 	private int rowCount=0;
@@ -30,7 +29,7 @@ public class InvoiceBuilder {
 		this.bar=bar;
 	}
 	
-	public void create(ArrayList<Client> clients) {
+	public void create(ArrayList<Client> clients,String path) {
 		bar.initExtBar();
 		for (Client x : clients) {
 			currentClientIndex++;
@@ -80,7 +79,7 @@ public class InvoiceBuilder {
 				bar.updateExtendetBar(x.getCartridges().size(), cartridgeCount++, "Cartridges");				
 			}
 			try {
-				wb.write(new FileOutputStream(desktopPath+clientName+extension));
+				wb.write(new FileOutputStream(path+clientName+extension));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
