@@ -21,7 +21,7 @@ import com.invoice.Delivery;
 import com.invoice.visual.ProgressPage;
 
 public class DeliveryParser {
-	
+
 	private int invoiceCellCount;
 	private int dataCellIndex;
 	private int clientCellIndex;
@@ -30,15 +30,15 @@ public class DeliveryParser {
 	private int usdCellIndex;
 	private int courseCellIndex;
 	private int clientIndex;
-	private int barCounter=0;
+	private int barCounter = 0;
 	private ProgressPage bar;
-	
+
 	public DeliveryParser(ProgressPage bar) {
-		this.bar=bar;
+		this.bar = bar;
 	}
-	
-	public void parse(ArrayList<Client> clients,String path) {
-		
+
+	public void parse(ArrayList<Client> clients, String path) {
+
 		FileInputStream is = null;
 		try {
 			is = new FileInputStream(new File(path));
@@ -46,9 +46,9 @@ public class DeliveryParser {
 			JOptionPane.showMessageDialog(null, "Выбери файл с поставками");
 			JFileChooser fc = new JFileChooser();
 			fc.setDialogTitle("Файл поставок");
-			if(fc.showOpenDialog(null)==JFileChooser.APPROVE_OPTION) {
+			if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 				try {
-					is = new FileInputStream(new File(fc.getSelectedFile().getAbsolutePath().replace("\\","\\\\")));
+					is = new FileInputStream(new File(fc.getSelectedFile().getAbsolutePath().replace("\\", "\\\\")));
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -71,16 +71,17 @@ public class DeliveryParser {
 			while (cells.hasNext()) {
 				Cell cell = cells.next();
 				try {
-					bar.updateBar(sheet.getLastRowNum(),barCounter,"Parsing Deliveries",false);
-					createIndexes(cell);	
+					bar.updateBar(sheet.getLastRowNum(), barCounter, "Parsing Deliveries", false);
+					createIndexes(cell);
 					if (cell.getStringCellValue().equals("да") && cell.getColumnIndex() == invoiceCellCount) {
-						for (int i=0;i<clients.size();i++) {
-							if(clients.get(i).getClientName().equalsIgnoreCase((row.getCell(clientCellIndex).toString()))) {
-								clientIndex=i;
+						for (int i = 0; i < clients.size(); i++) {
+							if (clients.get(i).getClientName()
+									.equalsIgnoreCase((row.getCell(clientCellIndex).toString()))) {
+								clientIndex = i;
+								addNewDelivery(row, clients);
 								break;
 							}
-						}
-						addNewDelivery(row,clients);
+						}				
 					}
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -91,13 +92,14 @@ public class DeliveryParser {
 
 	private void addNewDelivery(Row row, ArrayList<Client> clients) {
 		clients.get(clientIndex).getDeliveries().add(new Delivery());
-		Delivery tmp = clients.get(clientIndex).getDeliveries().get(clients.get(clientIndex).getDeliveries().size()-1);
+		Delivery tmp = clients.get(clientIndex).getDeliveries()
+				.get(clients.get(clientIndex).getDeliveries().size() - 1);
 		tmp.setDate(row.getCell(dataCellIndex).toString());
 		tmp.setGoods(row.getCell(goodsCellIndex).toString());
 		tmp.setCount(Double.parseDouble(row.getCell(countCellIndex).toString()));
 		tmp.setCostUSD(Double.parseDouble(row.getCell(usdCellIndex).toString()));
 		tmp.setCourse(Double.parseDouble(row.getCell(courseCellIndex).toString()));
-		tmp.setCostUAH(tmp.getCourse()*tmp.getCostUSD());
+		tmp.setCostUAH(tmp.getCourse() * tmp.getCostUSD());
 	}
 
 	private void createIndexes(Cell cell) {
@@ -122,5 +124,5 @@ public class DeliveryParser {
 		if (cell.getStringCellValue().equals("В счет")) {
 			invoiceCellCount = cell.getColumnIndex();
 		}
-	}	
+	}
 }

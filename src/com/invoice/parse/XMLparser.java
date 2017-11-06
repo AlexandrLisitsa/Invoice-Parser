@@ -65,8 +65,8 @@ public class XMLparser {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				bar.updateBar(nodeList.getLength(), i,
-						"Parsing Client:" + clients.get(clients.size() - 1).getClientName(), false);
+				bar.updateBar(nodeList.getLength(), i+2,
+						"Parsing Client:" + clients.get(clients.size()-1).getClientName(), false);
 			}
 			if (nodeList.item(i).hasChildNodes()) {
 				NodeList locList = nodeList.item(i).getChildNodes();

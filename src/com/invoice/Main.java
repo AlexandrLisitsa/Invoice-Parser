@@ -32,6 +32,16 @@ public class Main {
 		}
 		Main m = new Main();
 		m.loadCreator();
+		m.test();
+	}
+
+
+	private void test() {
+		for (Client x : clients) {
+			for (Delivery y : x.getDeliveries()) {
+				System.out.println(x.getClientName()+" "+y.getGoods());	
+			}
+		}
 	}
 
 

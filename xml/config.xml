@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
 	<Paths 
-		DeliveryPath="C:\Users\wypik\Desktop\Поставки оборудования.xls"
-		CartridgePath="C:\Users\wypik\Desktop\Заправки_2014.xls"
+		DeliveryPath="C:\Users\wypik\Desktop\Постаuвки.xls"
+		CartridgePath="C:\Users\wypik\Desktop\Заправки.xls"
 		InvoiceCreationPath="C:\Users\wypik\Desktop\invoices\"
 	/>
 </config>

@@ -78,10 +78,10 @@ public class ReloadCartridgeParser {
 							if (clients.get(i).getClientName()
 									.equalsIgnoreCase((row.getCell(clientCellIndex).toString()))) {
 								clientIndex = i;
+								addNewCartridge(row, clients);
 								break;
 							}
 						}
-						addNewCartridge(row, clients);
 					}
 				} catch (Exception e) {
 					// TODO: handle exception
