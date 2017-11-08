@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import com.invoice.creator.DOCXcreator;
 import com.invoice.creator.InvoiceBuilder;
 import com.invoice.parse.DeliveryParser;
 import com.invoice.parse.ReloadCartridgeParser;
@@ -21,6 +22,7 @@ public class Main {
 	private InvoiceBuilder builder = new InvoiceBuilder(progress);
 	private ArrayList<Client> clients = new ArrayList<Client>();
 	private Config cfg = new Config();
+	private DOCXcreator docParser = new DOCXcreator();
 
 	public static void main(String[] args) {
 		try {
@@ -37,11 +39,11 @@ public class Main {
 
 
 	private void test() {
-		for (Client x : clients) {
-			for (Delivery y : x.getDeliveries()) {
-				System.out.println(x.getClientName()+" "+y.getGoods());	
+		for(int i=0;i<clients.size();i++) {
+			if(clients.get(i).getClientName().equalsIgnoreCase("оптидея")) {
+				docParser.createInvoice(clients.get(i));
 			}
-		}
+		}	
 	}
 
 

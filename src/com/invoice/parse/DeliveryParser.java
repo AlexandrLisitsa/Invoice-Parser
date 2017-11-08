@@ -73,7 +73,7 @@ public class DeliveryParser {
 				try {
 					bar.updateBar(sheet.getLastRowNum(), barCounter, "Parsing Deliveries", false);
 					createIndexes(cell);
-					if (cell.getStringCellValue().equals("да") && cell.getColumnIndex() == invoiceCellCount) {
+					if (cell.getStringCellValue().equalsIgnoreCase("да") && cell.getColumnIndex() == invoiceCellCount) {
 						for (int i = 0; i < clients.size(); i++) {
 							if (clients.get(i).getClientName()
 									.equalsIgnoreCase((row.getCell(clientCellIndex).toString()))) {
