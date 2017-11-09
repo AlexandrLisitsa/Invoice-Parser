@@ -6,8 +6,11 @@ import java.util.ArrayList;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import com.invoice.client.Client;
+import com.invoice.client.Service;
 import com.invoice.creator.DOCXcreator;
 import com.invoice.creator.InvoiceBuilder;
+import com.invoice.parse.AdditionParse;
 import com.invoice.parse.DeliveryParser;
 import com.invoice.parse.ReloadCartridgeParser;
 import com.invoice.parse.XMLparser;
@@ -23,6 +26,7 @@ public class Main {
 	private ArrayList<Client> clients = new ArrayList<Client>();
 	private Config cfg = new Config();
 	private DOCXcreator docParser = new DOCXcreator();
+	private AdditionParse additionParse = new AdditionParse();
 
 	public static void main(String[] args) {
 		try {
@@ -42,6 +46,10 @@ public class Main {
 		for(int i=0;i<clients.size();i++) {
 			if(clients.get(i).getClientName().equalsIgnoreCase("оптидея")) {
 				docParser.createInvoice(clients.get(i));
+				ArrayList<Service> ser=clients.get(i).getServices();
+				for (Service x : ser) {
+					System.out.println(x.getDescription()+" "+x.getCount()+" "+x.getPrice());
+				}
 			}
 		}	
 	}
@@ -56,6 +64,8 @@ public class Main {
 		deliveryParser.parse(clients,cfg.getDeliveryPath());
 		System.out.println("cartridge parser");
 		cartridgeParser.parse(clients,cfg.getCartridgePath());
+		System.out.println("addition parser");
+		additionParse.parse(clients, cfg.getAdditionPath());
 		System.out.println("create invoices");
 		builder.create(clients,cfg.getInvoiceCreationPath());
 		progress.getLabel().setForeground(Color.GREEN);

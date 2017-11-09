@@ -4,5 +4,6 @@
 		DeliveryPath="C:\Users\wypik\Desktop\Поставки.xls"
 		CartridgePath="C:\Users\wypik\Desktop\Заправки.xls"
 		InvoiceCreationPath="C:\Users\wypik\Desktop\invoices\"
+		AdditionPath="C:\Users\wypik\Desktop\долги и допы.xls"
 	/>
 </config>

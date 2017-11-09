@@ -19,9 +19,9 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 
-import com.invoice.Client;
-import com.invoice.Delivery;
-import com.invoice.ReloadCartridge;
+import com.invoice.client.Client;
+import com.invoice.client.Delivery;
+import com.invoice.client.ReloadCartridge;
 import com.invoice.month.Months;
 
 public class DOCXcreator {
@@ -45,71 +45,84 @@ public class DOCXcreator {
 	public void createInvoice(Client client) {
 		this.client = client;
 		doc = new XWPFDocument();
-		createHead();
+		createActHead();
 		createActTitle();
-		ctrateTable();
+		ctrateActTable();
 		save();
 	}
 
-	private void ctrateTable() {
-		createDebtTable();
-		createServicesTable();
+	private void ctrateActTable() {
+		createTableDebt();
+		createTableServices();
+		createTableAdditions();
 	}
 
-	private void createServicesTable() {
+	private void createTableServices() {
+		createTableTitle("Услуги");
+		formatTable();
+		//создание таблицы сервисов
+		table = doc.createTable(client.getServices().size(), 5);
+		formatTable();
+		for(int row=0;row<client.getServices().size();row++) {
+			table.getRow(row).getCell(0).setText(String.valueOf(row+1));
+			table.getRow(row).getCell(1).setText(client.getServices().get(row).getDescription());
+			table.getRow(row).getCell(2).setText(getFormatedDecimal(client.getServices().get(row).getCount()));
+			table.getRow(row).getCell(3).setText(getFormatedDecimal(client.getServices().get(row).getPrice()));
+			table.getRow(row).getCell(4).setText(getFormatedDecimal(client.getServices().get(row).getPrice()*client.getServices().get(row).getCount()));
+		}
+	}
+
+	private void createTableAdditions() {
 		// создание заголовка таблицы
 		ArrayList<ReloadCartridge> cartridge = client.getCartridges();
 		ArrayList<Delivery> deliveries = client.getDeliveries();
 		int row = 0;
-		doc.createParagraph();
-		table = doc.createTable(1, 5);
-		for (int i = 0; i < 5; i++) {
-			List<XWPFParagraph> tpar = table.getRow(0).getCell(i).getParagraphs();
-			tpar.get(0).setVerticalAlignment(TextAlignment.CENTER);
-			run = tpar.get(0).createRun();
-			run.setBold(true);
-			run.setFontFamily("times new roman");
-			if (i == 0) {
-				run.setText("№");
-			} else if (i == 1) {
-				run.setText("Дополнительные услуги:");
-			} else if (i == 2) {
-				run.setText("Кол-во");
-			} else if (i == 3) {
-				run.setText("Цена,грн");
-			} else if (i == 4) {
-				run.setText("Стоимость,грн");
-			}
-		}
+		
+		createTableTitle("Дополнительные услуги:");
 		formatTable();
 
 		// создание таблицы допов/поставок/заправок
 		table = doc.createTable(client.getDeliveries().size() + client.getCartridges().size(), 5);
 		formatTable();
 		// заполнение таблицы допов/поставок/заправок
-		
-		//заправки
+
+		// заправки
 		for (int c = row; c < client.getCartridges().size(); c++, row++) {
 			table.getRow(row).getCell(0).setText(String.valueOf(row + 1));
 			table.getRow(row).getCell(1).setText(cartridge.get(c).getDate() + " " + cartridge.get(c).getPrinter() + " "
 					+ cartridge.get(c).getWorkDescription());
-			table.getRow(row).getCell(2).setText(String.valueOf(cartridge.get(c).getCount()));
-			table.getRow(row).getCell(3).setText(String.valueOf(cartridge.get(c).getCostUAH()+25));
-			table.getRow(row).getCell(4).setText(String.valueOf(
+			table.getRow(row).getCell(2).setText(getFormatedDecimal(cartridge.get(c).getCount()));
+			table.getRow(row).getCell(3).setText(getFormatedDecimal(cartridge.get(c).getCostUAH()+25));
+			table.getRow(row).getCell(4).setText(getFormatedDecimal(
 					cartridge.get(c).getCount() * cartridge.get(c).getCostUAH() + (25 * cartridge.get(c).getCount())));
 		}
-		//поставки
+		// поставки
 		for (int d = 0; d < client.getDeliveries().size(); d++, row++) {
 			table.getRow(row).getCell(0).setText(String.valueOf(row + 1));
 			table.getRow(row).getCell(1).setText(deliveries.get(d).getDate() + " " + deliveries.get(d).getGoods());
-			table.getRow(row).getCell(2).setText(String.valueOf(deliveries.get(d).getCount()));
-			table.getRow(row).getCell(3).setText(String.valueOf(deliveries.get(d).getCostUAH()*1.1));
-			table.getRow(row).getCell(4).setText(String.valueOf(deliveries.get(d).getCount()*(deliveries.get(d).getCostUAH()*1.1)));
+			table.getRow(row).getCell(2).setText(getFormatedDecimal(deliveries.get(d).getCount()));
+			table.getRow(row).getCell(3).setText(getFormatedDecimal(deliveries.get(d).getCostUAH() * 1.1));
+			table.getRow(row).getCell(4)
+					.setText(getFormatedDecimal(deliveries.get(d).getCount() * (deliveries.get(d).getCostUAH() * 1.1)));
+		}
+	}
+
+	private String getFormatedDecimal(double x) {
+		String str;
+		str = String.valueOf(x);
+		if (str.endsWith(".0")) {
+			return str.substring(0, str.indexOf("."));
+		} else {
+			try {
+				return str.substring(0, str.indexOf(".") + 3);
+			} catch (Exception e) {
+				return str;
+			}
 		}
 	}
 
 	@SuppressWarnings("deprecation")
-	private void createDebtTable() {
+	private void createTableDebt() {
 		List<XWPFParagraph> parList;
 		table = doc.createTable(3, 5);
 
@@ -160,6 +173,10 @@ public class DOCXcreator {
 				}
 			}
 		}
+		table.getRow(0).getCell(4).setText(getFormatedDecimal(client.getAccrued()));
+		table.getRow(1).getCell(4).setText(getFormatedDecimal(client.getPayd()));
+		table.getRow(2).getCell(4).setText(getFormatedDecimal(client.getAccrued() - client.getPayd()));
+		doc.createParagraph();
 	}
 
 	@SuppressWarnings("deprecation")
@@ -189,7 +206,7 @@ public class DOCXcreator {
 		run.setFontSize(16);
 		run.setFontFamily("times new roman");
 		run.setBold(true);
-		run.setText("Акт выполненных работ №" + "cliNum" + "/" + String.valueOf(Integer.valueOf(incrimentMonth())) + "-"
+		run.setText(client.getUpperActTitle() + "/" + String.valueOf(Integer.valueOf(incrimentMonth())) + "-"
 				+ String.valueOf(calendar.getTime().getYear()).substring(1, 3));
 		// нижняя строка
 		paragraph = doc.createParagraph();
@@ -198,7 +215,7 @@ public class DOCXcreator {
 		run.setFontSize(16);
 		run.setFontFamily("times new roman");
 		run.setBold(true);
-		run.setText("Выдан ООО «Оптидея Плюс» за " + Months.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
+		run.setText(client.getLowerActTitle() + Months.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
 				+ calendar.get(Calendar.YEAR) + " г.");
 	}
 
@@ -210,10 +227,10 @@ public class DOCXcreator {
 		}
 	}
 
-	private void createHead() {
+	private void createActHead() {
 		paragraph = doc.createParagraph();
 		run = paragraph.createRun();
-		String imagePath = "test.png";
+		String imagePath = "res/logo.png";
 
 		try {
 			is = new FileInputStream(imagePath);
@@ -269,5 +286,28 @@ public class DOCXcreator {
 				}
 			}
 		}
+	}
+	
+	private void createTableTitle(String description) {
+		table = doc.createTable(1, 5);
+		for (int i = 0; i < 5; i++) {
+			List<XWPFParagraph> tpar = table.getRow(0).getCell(i).getParagraphs();
+			tpar.get(0).setVerticalAlignment(TextAlignment.CENTER);
+			run = tpar.get(0).createRun();
+			run.setBold(true);
+			run.setFontFamily("times new roman");
+			if (i == 0) {
+				run.setText("№");
+			} else if (i == 1) {
+				run.setText(description);
+			} else if (i == 2) {
+				run.setText("Кол-во");
+			} else if (i == 3) {
+				run.setText("Цена,грн");
+			} else if (i == 4) {
+				run.setText("Стоимость,грн");
+			}
+		}
+		formatTable();
 	}
 }

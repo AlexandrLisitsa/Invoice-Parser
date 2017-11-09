@@ -16,8 +16,8 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
-import com.invoice.Client;
-import com.invoice.ReloadCartridge;
+import com.invoice.client.Client;
+import com.invoice.client.ReloadCartridge;
 import com.invoice.visual.ProgressPage;
 
 public class ReloadCartridgeParser {

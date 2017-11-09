@@ -1,4 +1,4 @@
-package com.invoice;
+package com.invoice.client;
 
 public class ReloadCartridge {
 	

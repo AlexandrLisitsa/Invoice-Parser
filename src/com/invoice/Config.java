@@ -5,6 +5,7 @@ public class Config {
 	private String CartridgePath;
 	private String DeliveryPath;
 	private String InvoiceCreationPath;
+	private String AdditionPath;
 	
 	public String getCartridgePath() {
 		return CartridgePath;
@@ -23,6 +24,12 @@ public class Config {
 	}
 	public void setInvoiceCreationPath(String invoiceCreationPath) {
 		InvoiceCreationPath = invoiceCreationPath;
+	}
+	public String getAdditionPath() {
+		return AdditionPath;
+	}
+	public void setAdditionPath(String additionPath) {
+		AdditionPath = additionPath;
 	}
 	
 }

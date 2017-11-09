@@ -16,9 +16,12 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import com.invoice.Client;
 import com.invoice.Config;
+import com.invoice.client.Client;
+import com.invoice.client.Service;
 import com.invoice.visual.ProgressPage;
+
+import javafx.collections.ListChangeListener;
 
 public class XMLparser {
 
@@ -74,6 +77,33 @@ public class XMLparser {
 					if (locList.item(tmpList).getNodeName().equals("location")) {
 						clients.get(clients.size() - 1).setLocation(locList.item(tmpList).getTextContent());
 					}
+					if (locList.item(tmpList).getNodeName().equals("upperActTitle")) {
+						clients.get(clients.size() - 1).setUpperActTitle(locList.item(tmpList).getTextContent());
+					}
+					if (locList.item(tmpList).getNodeName().equals("lowerActTitle")) {
+						clients.get(clients.size() - 1).setLowerActTitle(locList.item(tmpList).getTextContent());
+					}
+					if (locList.item(tmpList).getNodeName().equals("services")) {
+						NodeList serviceList = locList.item(tmpList).getChildNodes();
+						for(int ser=0;ser<serviceList.getLength();ser++) {
+							if(serviceList.item(ser).getNodeName().equals("service")) {
+								NamedNodeMap attArr=serviceList.item(ser).getAttributes();
+								clients.get(clients.size()-1).getServices().add(new Service());
+								for (int att=0;att<attArr.getLength();att++) {
+									Client c=clients.get(clients.size()-1);
+									if(attArr.item(att).getNodeName().equals("description")) {
+										c.getServices().get(c.getServices().size()-1).setDescription(attArr.item(att).getNodeValue());
+									}
+									if(attArr.item(att).getNodeName().equals("count")) {
+										c.getServices().get(c.getServices().size()-1).setCount(Double.parseDouble(attArr.item(att).getNodeValue()));
+									}
+									if(attArr.item(att).getNodeName().equals("cost")) {
+										c.getServices().get(c.getServices().size()-1).setPrice(Double.parseDouble(attArr.item(att).getNodeValue()));
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -105,6 +135,9 @@ public class XMLparser {
 					}
 					if (tmp.item(k).getNodeName().equals("DeliveryPath")) {
 						cfg.setDeliveryPath(tmp.item(k).getNodeValue());
+					}
+					if (tmp.item(k).getNodeName().equals("AdditionPath")) {
+						cfg.setAdditionPath(tmp.item(k).getNodeValue());
 					}
 					if (tmp.item(k).getNodeName().equals("InvoiceCreationPath")) {
 						if (new File(tmp.item(k).getNodeValue()).exists()) {
