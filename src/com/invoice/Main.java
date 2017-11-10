@@ -7,6 +7,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import com.invoice.client.Client;
+import com.invoice.client.Server;
 import com.invoice.client.Service;
 import com.invoice.creator.DOCXcreator;
 import com.invoice.creator.InvoiceBuilder;
@@ -46,10 +47,12 @@ public class Main {
 		for(int i=0;i<clients.size();i++) {
 			if(clients.get(i).getClientName().equalsIgnoreCase("оптидея")) {
 				docParser.createInvoice(clients.get(i));
-				ArrayList<Service> ser=clients.get(i).getServices();
-				for (Service x : ser) {
-					System.out.println(x.getDescription()+" "+x.getCount()+" "+x.getPrice());
-				}
+			}
+			for (Server x : clients.get(i).getServers()) {
+				System.out.println(x.getDescription()+" "+x.getCount()+" "+x.getPrice());
+			}
+			for (Service x : clients.get(i).getServices()) {
+				System.out.println(x.getDescription()+" "+x.getCount()+" "+x.getPrice());
 			}
 		}	
 	}
@@ -65,7 +68,7 @@ public class Main {
 		System.out.println("cartridge parser");
 		cartridgeParser.parse(clients,cfg.getCartridgePath());
 		System.out.println("addition parser");
-		additionParse.parse(clients, cfg.getAdditionPath());
+		additionParse.parseDebt(clients, cfg.getAdditionPath());
 		System.out.println("create invoices");
 		builder.create(clients,cfg.getInvoiceCreationPath());
 		progress.getLabel().setForeground(Color.GREEN);

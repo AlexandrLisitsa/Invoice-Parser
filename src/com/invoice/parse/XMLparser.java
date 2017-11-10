@@ -18,10 +18,9 @@ import org.xml.sax.SAXException;
 
 import com.invoice.Config;
 import com.invoice.client.Client;
+import com.invoice.client.Server;
 import com.invoice.client.Service;
 import com.invoice.visual.ProgressPage;
-
-import javafx.collections.ListChangeListener;
 
 public class XMLparser {
 
@@ -83,26 +82,49 @@ public class XMLparser {
 					if (locList.item(tmpList).getNodeName().equals("lowerActTitle")) {
 						clients.get(clients.size() - 1).setLowerActTitle(locList.item(tmpList).getTextContent());
 					}
+					if (locList.item(tmpList).getNodeName().equals("discount")) {
+						clients.get(clients.size() - 1).setDiscount(Double.parseDouble(locList.item(tmpList).getTextContent()));
+					}
 					if (locList.item(tmpList).getNodeName().equals("services")) {
-						NodeList serviceList = locList.item(tmpList).getChildNodes();
-						for(int ser=0;ser<serviceList.getLength();ser++) {
-							if(serviceList.item(ser).getNodeName().equals("service")) {
-								NamedNodeMap attArr=serviceList.item(ser).getAttributes();
-								clients.get(clients.size()-1).getServices().add(new Service());
-								for (int att=0;att<attArr.getLength();att++) {
-									Client c=clients.get(clients.size()-1);
-									if(attArr.item(att).getNodeName().equals("description")) {
-										c.getServices().get(c.getServices().size()-1).setDescription(attArr.item(att).getNodeValue());
-									}
-									if(attArr.item(att).getNodeName().equals("count")) {
-										c.getServices().get(c.getServices().size()-1).setCount(Double.parseDouble(attArr.item(att).getNodeValue()));
-									}
-									if(attArr.item(att).getNodeName().equals("cost")) {
-										c.getServices().get(c.getServices().size()-1).setPrice(Double.parseDouble(attArr.item(att).getNodeValue()));
-									}
-								}
-							}
-						}
+						addServices(locList, tmpList, clients);
+					}
+				}
+			}
+		}
+	}
+	
+	private void addServices(NodeList locList,int tmpList,ArrayList<Client> clients) {
+		NodeList serviceList = locList.item(tmpList).getChildNodes();
+		for(int ser=0;ser<serviceList.getLength();ser++) {
+			if(serviceList.item(ser).getNodeName().equals("service")) {
+				NamedNodeMap attArr=serviceList.item(ser).getAttributes();
+				clients.get(clients.size()-1).getServices().add(new Service());
+				for (int att=0;att<attArr.getLength();att++) {
+					Client c=clients.get(clients.size()-1);
+					if(attArr.item(att).getNodeName().equals("description")) {
+						c.getServices().get(c.getServices().size()-1).setDescription(attArr.item(att).getNodeValue());
+					}
+					if(attArr.item(att).getNodeName().equals("count")) {
+						c.getServices().get(c.getServices().size()-1).setCount(Double.parseDouble(attArr.item(att).getNodeValue()));
+					}
+					if(attArr.item(att).getNodeName().equals("cost")) {
+						c.getServices().get(c.getServices().size()-1).setPrice(Double.parseDouble(attArr.item(att).getNodeValue()));
+					}
+				}
+			}
+			if(serviceList.item(ser).getNodeName().equals("server")) {
+				NamedNodeMap attArr=serviceList.item(ser).getAttributes();
+				clients.get(clients.size()-1).getServers().add(new Server());
+				for (int att=0;att<attArr.getLength();att++) {
+					Client c=clients.get(clients.size()-1);
+					if(attArr.item(att).getNodeName().equals("description")) {
+						c.getServers().get(c.getServers().size()-1).setDescription(attArr.item(att).getNodeValue());
+					}
+					if(attArr.item(att).getNodeName().equals("count")) {
+						c.getServers().get(c.getServers().size()-1).setCount(Double.parseDouble(attArr.item(att).getNodeValue()));
+					}
+					if(attArr.item(att).getNodeName().equals("cost")) {
+						c.getServers().get(c.getServers().size()-1).setPrice(Double.parseDouble(attArr.item(att).getNodeValue()));
 					}
 				}
 			}

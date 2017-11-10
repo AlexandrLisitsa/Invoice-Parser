@@ -23,7 +23,45 @@ public class AdditionParse {
 	private int accruedCellIndex=1;
 	private int paydCellIndex=2;
 		
-	public void parse(ArrayList<Client> clients, String path) {
+	public void parseDebt(ArrayList<Client> clients, String path) {
+
+		FileInputStream is = null;
+		try {
+			is = new FileInputStream(new File(path));
+		} catch (FileNotFoundException e1) {
+			JOptionPane.showMessageDialog(null, "Выбери файл с допами");
+			JFileChooser fc = new JFileChooser();
+			fc.setDialogTitle("Файл допов");
+			if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+				try {
+					is = new FileInputStream(new File(fc.getSelectedFile().getAbsolutePath().replace("\\", "\\\\")));
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		Workbook wb = null;
+		try {
+			wb = new HSSFWorkbook(is);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Sheet sheet = wb.getSheetAt(0);
+		Iterator<Row> it = sheet.iterator();
+		while (it.hasNext()) {
+			Row row = it.next();
+			for(int i=0;i<clients.size();i++) {
+				if(row.getCell(clientCellIndex).toString().equalsIgnoreCase(clients.get(i).getClientName())) {
+					clients.get(i).setAccrued(Double.parseDouble((row.getCell(accruedCellIndex).toString())));
+					clients.get(i).setPayd(Double.parseDouble((row.getCell(paydCellIndex).toString())));
+				}
+			}
+		}
+	}
+	
+	public void parseAdditions(ArrayList<Client> clients, String path) {
 
 		FileInputStream is = null;
 		try {

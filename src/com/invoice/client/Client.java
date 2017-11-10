@@ -10,12 +10,50 @@ public class Client {
 	private ArrayList<Delivery> deliveries = new ArrayList<Delivery>();
 	private ArrayList<ReloadCartridge> cartridges = new ArrayList<ReloadCartridge>();
 	private ArrayList<Service> services = new ArrayList<Service>();
+	private ArrayList<Server> servers = new ArrayList<Server>();
 	private String location;
 	private String clientName;
 	private String upperActTitle;
 	private String lowerActTitle;
 	private double accrued;
 	private double payd;
+	private double discount;
+	
+	public double getTotalCartridgeCostWith25() {
+		double x=0;
+		for(ReloadCartridge c:cartridges) {
+			x+=c.getCount()*(c.getCostUAH()+25);
+		}
+		return x;
+	}
+	
+	public double getDebt() {
+		return accrued-payd;
+	}
+	
+	public double getTotalDeliveriesCostWith10Percent() {
+		double x=0;
+		for(Delivery d:deliveries) {
+			x+=d.getCount()*(d.getCostUAH()*1.1);
+		}
+		return x;
+	}
+	
+	public double getTotalServiceCost() {
+		double x = 0;
+		for (Service s : services) {
+			x+=s.getCount()*s.getPrice();
+		}
+		return x;
+	}
+	
+	public double getTotalServersCost() {
+		double x = 0;
+		for (Server s : servers) {
+			x+=s.getCount()*s.getPrice();
+		}
+		return x;
+	}
 	
 	public String getClientName() {
 		return clientName;
@@ -87,6 +125,22 @@ public class Client {
 
 	public void setServices(ArrayList<Service> services) {
 		this.services = services;
+	}
+
+	public double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+	public ArrayList<Server> getServers() {
+		return servers;
+	}
+
+	public void setServers(ArrayList<Server> servers) {
+		this.servers = servers;
 	}
 
 }

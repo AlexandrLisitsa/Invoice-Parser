@@ -38,13 +38,14 @@
 	</Client>
 	<Client name="Оптидея">
 		<location>z:\Счета\25_Оптидея+\</location>
-		<upperActTitle>Акт выполненных работ №25</upperActTitle>
+		<upperActTitle>Счет №25</upperActTitle>
 		<lowerActTitle>Выдан ООО «Оптидея Плюс» за </lowerActTitle>
 		<services>
 			<service description="Обслуживание рабочих станций" count="10" cost="400" />
-			<service description="Оплата Сервер + второй IP 56,49 евро по курсу 31,26" count="1" cost="1854.17" /> 
+			<server description="Оплата Сервер + второй IP 56,49 евро по курсу 31,26" count="1" cost="1854.17" /> 
 			<service description="Обслуживание серверов" count="2" cost="600" />
 		</services>
+		<discount>40</discount>
 	</Client>
 	<Client name="Ангелдент">
 		<location>z:\Счета\26_АнгелДент\</location>

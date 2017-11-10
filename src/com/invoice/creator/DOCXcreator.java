@@ -38,10 +38,6 @@ public class DOCXcreator {
 	private Client client;
 	private XWPFTable table;
 
-	// test
-
-	// test
-
 	public void createInvoice(Client client) {
 		this.client = client;
 		doc = new XWPFDocument();
@@ -54,21 +50,56 @@ public class DOCXcreator {
 	private void ctrateActTable() {
 		createTableDebt();
 		createTableServices();
+		createTableDiscount();
 		createTableAdditions();
+		createTableTotal();
+	}
+
+	private void createTableTotal() {
+		createTableTitle(null,"ИТОГО",null,null,null);
+		table.getRow(0).getCell(4).getParagraphs().get(0).getRuns().get(0).setBold(true);
+		table.getRow(0).getCell(4).getParagraphs().get(0).getRuns().get(0).setText(getFormatedDecimal(createTotal()));
+		formatTable(table);
+	}
+
+	private double createTotal() {
+		double x=0;
+		x+=client.getTotalServersCost()+(client.getTotalServiceCost()-(client.getTotalServiceCost()*(client.getDiscount()/100)));
+		x+=client.getTotalCartridgeCostWith25();
+		x+=client.getTotalDeliveriesCostWith10Percent();
+		x+=client.getDebt();
+		return x;
+	}
+
+	private void createTableDiscount() {
+		createTableTitle(null,"Скидка на услуги(без серверов): "+client.getDiscount()+" %",null,null,null);
+		table.getRow(0).getCell(2).setText("Итого");
+		table.getRow(0).getCell(4).setText(getFormatedDecimal(client.getTotalServersCost()+(client.getTotalServiceCost()-(client.getTotalServiceCost()*(client.getDiscount()/100)))));
+		formatTable(table);
 	}
 
 	private void createTableServices() {
-		createTableTitle("Услуги");
-		formatTable();
+		createTableTitle("№","Услуги:","Кол-во","Цена,грн","Стоимость,грн");
+		formatTable(table);
+		
+		int row=0;
+		
 		//создание таблицы сервисов
-		table = doc.createTable(client.getServices().size(), 5);
-		formatTable();
-		for(int row=0;row<client.getServices().size();row++) {
+		table = doc.createTable(client.getServices().size()+client.getServers().size(), 5);
+		formatTable(table);
+		for(int i=row;row<client.getServices().size();i++,row++) {
+			table.getRow(row).getCell(0).setText(String.valueOf(i+1));
+			table.getRow(row).getCell(1).setText(client.getServices().get(i).getDescription());
+			table.getRow(row).getCell(2).setText(getFormatedDecimal(client.getServices().get(i).getCount()));
+			table.getRow(row).getCell(3).setText(getFormatedDecimal(client.getServices().get(i).getPrice()));
+			table.getRow(row).getCell(4).setText(getFormatedDecimal((client.getServices().get(i).getPrice()*client.getServices().get(row).getCount())));
+		}
+		for(int i=0;i<client.getServers().size();i++,row++) {
 			table.getRow(row).getCell(0).setText(String.valueOf(row+1));
-			table.getRow(row).getCell(1).setText(client.getServices().get(row).getDescription());
-			table.getRow(row).getCell(2).setText(getFormatedDecimal(client.getServices().get(row).getCount()));
-			table.getRow(row).getCell(3).setText(getFormatedDecimal(client.getServices().get(row).getPrice()));
-			table.getRow(row).getCell(4).setText(getFormatedDecimal(client.getServices().get(row).getPrice()*client.getServices().get(row).getCount()));
+			table.getRow(row).getCell(1).setText(client.getServers().get(i).getDescription());
+			table.getRow(row).getCell(2).setText(getFormatedDecimal(client.getServers().get(i).getCount()));
+			table.getRow(row).getCell(3).setText(getFormatedDecimal(client.getServers().get(i).getPrice()));
+			table.getRow(row).getCell(4).setText(getFormatedDecimal((client.getServers().get(i).getPrice()*client.getServers().get(i).getCount())));
 		}
 	}
 
@@ -78,12 +109,12 @@ public class DOCXcreator {
 		ArrayList<Delivery> deliveries = client.getDeliveries();
 		int row = 0;
 		
-		createTableTitle("Дополнительные услуги:");
-		formatTable();
+		createTableTitle("№","Дополнительные услуги:","Кол-во","Цена,грн","Стоимость,грн");
+		formatTable(table);
 
 		// создание таблицы допов/поставок/заправок
 		table = doc.createTable(client.getDeliveries().size() + client.getCartridges().size(), 5);
-		formatTable();
+		formatTable(table);
 		// заполнение таблицы допов/поставок/заправок
 
 		// заправки
@@ -217,6 +248,12 @@ public class DOCXcreator {
 		run.setBold(true);
 		run.setText(client.getLowerActTitle() + Months.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
 				+ calendar.get(Calendar.YEAR) + " г.");
+		//акт является счетом
+		paragraph=doc.createParagraph();
+		paragraph.setAlignment(ParagraphAlignment.CENTER);
+		run=paragraph.createRun();
+		run.setFontSize(9);
+		run.setText("Счет является актом выполненных работ.Стороны претензий не имеют");
 	}
 
 	private String incrimentMonth() {
@@ -263,32 +300,32 @@ public class DOCXcreator {
 		}
 	}
 
-	private void formatTable() {
+	private void formatTable(XWPFTable tmpTable) {
 		List<XWPFParagraph> parList;
-		for (int row = 0; row < table.getNumberOfRows(); row++) {
+		for (int row = 0; row < tmpTable.getNumberOfRows(); row++) {
 			for (int col = 0; col < 5; col++) {
 				if (col == 0) {
-					table.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW()
+					tmpTable.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW()
 							.setW(BigInteger.valueOf(NUMBER_CELL_SUZE));
 				} else if (col == 1) {
-					table.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW()
+					tmpTable.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW()
 							.setW(BigInteger.valueOf(DESCRIPTION_CELL_SIZE));
-					parList = table.getRow(row).getCell(col).getParagraphs();
+					parList = tmpTable.getRow(row).getCell(col).getParagraphs();
 					parList.get(0).setAlignment(ParagraphAlignment.CENTER);
 					parList.get(0).setVerticalAlignment(TextAlignment.CENTER);
 
 				} else {
-					parList = table.getRow(row).getCell(col).getParagraphs();
+					parList = tmpTable.getRow(row).getCell(col).getParagraphs();
 					parList.get(0).setAlignment(ParagraphAlignment.CENTER);
 					parList.get(0).setVerticalAlignment(TextAlignment.CENTER);
-					table.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW()
+					tmpTable.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW()
 							.setW(BigInteger.valueOf(OTHER_CELL_SIZE));
 				}
 			}
 		}
 	}
 	
-	private void createTableTitle(String description) {
+	private void createTableTitle(String number,String description,String count,String price,String totalCost) {
 		table = doc.createTable(1, 5);
 		for (int i = 0; i < 5; i++) {
 			List<XWPFParagraph> tpar = table.getRow(0).getCell(i).getParagraphs();
@@ -297,17 +334,17 @@ public class DOCXcreator {
 			run.setBold(true);
 			run.setFontFamily("times new roman");
 			if (i == 0) {
-				run.setText("№");
+				run.setText(number);
 			} else if (i == 1) {
 				run.setText(description);
 			} else if (i == 2) {
-				run.setText("Кол-во");
+				run.setText(count);
 			} else if (i == 3) {
-				run.setText("Цена,грн");
+				run.setText(price);
 			} else if (i == 4) {
-				run.setText("Стоимость,грн");
+				run.setText(totalCost);
 			}
 		}
-		formatTable();
+		formatTable(table);
 	}
 }
