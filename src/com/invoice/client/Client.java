@@ -11,6 +11,7 @@ public class Client {
 	private ArrayList<ReloadCartridge> cartridges = new ArrayList<ReloadCartridge>();
 	private ArrayList<Service> services = new ArrayList<Service>();
 	private ArrayList<Server> servers = new ArrayList<Server>();
+	private ArrayList<Addition> additions = new ArrayList<Addition>();
 	private String location;
 	private String clientName;
 	private String upperActTitle;
@@ -18,6 +19,14 @@ public class Client {
 	private double accrued;
 	private double payd;
 	private double discount;
+	
+	public double getTotalAdditionsCost() {
+		double x=0;
+		for(Addition a:additions) {
+			x+=a.getCount()*(a.getCostUAH());
+		}
+		return x;
+	}
 	
 	public double getTotalCartridgeCostWith25() {
 		double x=0;
@@ -141,6 +150,14 @@ public class Client {
 
 	public void setServers(ArrayList<Server> servers) {
 		this.servers = servers;
+	}
+
+	public ArrayList<Addition> getAdditions() {
+		return additions;
+	}
+
+	public void setAdditions(ArrayList<Addition> additions) {
+		this.additions = additions;
 	}
 
 }

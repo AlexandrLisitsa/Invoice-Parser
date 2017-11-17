@@ -1,149 +1,566 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- EXAMPLE
+
+<Client name="Оптидея">
+		<location>z:\Счета\25_Оптидея+\</location> -расположене на диске
+		<upperActTitle>Счет №25</upperActTitle> -верхняя часть акта
+		<lowerActTitle>Выдан ООО «Оптидея Плюс» за </lowerActTitle> - нижняя часть акта
+		<services> -список ежемесячных услуг
+			<service description="Обслуживание рабочих станций" count="10" cost="400" />
+		 	<server description="Оплата Сервер + второй IP 56,49 евро по курсу 31,26" count="1" cost="1854.17" />
+			<service description="Обслуживание серверов" count="2" cost="600" />
+		</services>
+		<discount>0</discount> - скидка
+	</Client>
+
+ -->
+
 <Clients>
+
 	<Client name="Восход">
 		<location>z:\Счета\01_Априори\Восход\</location>
+		<upperActTitle>Акт выполненных работ № 01-2</upperActTitle>
+		<lowerActTitle>Выдан ФЛП  Полевой В.А. за </lowerActTitle>
 	</Client>
+	
+	
 	<Client name="Париж">
 		<location>z:\Счета\01_Априори\Париж\</location>
+		<upperActTitle>Акт выполненных работ № 01-1</upperActTitle>
+		<lowerActTitle>Выдан ФЛП  Полевой В.А. (Париж) за </lowerActTitle>
+		<services>
+			<service description="IT поддержка" count="1" cost="1500" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Сливки">
 		<location>z:\Счета\01_Априори\Сливки\</location>
+		<upperActTitle>Акт выполненных работ № 30</upperActTitle>
+		<lowerActTitle>Выдан ФЛП  Полевой В.А. (Сливки) за </lowerActTitle>
+		<services>
+			<service description="IT поддержка" count="1" cost="500" />	
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Утка">
 		<location>z:\Счета\01_Априори\Утка\</location>
+		<upperActTitle>Акт выполненных работ № 43</upperActTitle>
+		<lowerActTitle>Выдан ФЛП  Полевой В.А. (Утка) за </lowerActTitle>
+		<services>
+			<service description="IT поддержка" count="1" cost="500" />	
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Априори">
 		<location>z:\Счета\01_Априори\Центр\</location>
+		<upperActTitle>Акт выполненных работ № 01-3</upperActTitle>
+		<lowerActTitle>Выдан ФЛП  Полевой В.А. (Офис) за </lowerActTitle>
+		<services>
+			<service description="IT поддержка" count="1" cost="500" />	
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="АТЛ">
 		<location>z:\Счета\02_АТЛ\</location>
+		<upperActTitle>Акт выполненных работ № 03</upperActTitle>
+		<lowerActTitle>Выдан  ООО «ТЛ-Авто» за </lowerActTitle>
+		<services>
+			<service description="Удаленная поддержка пользователей" count="1" cost="400" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Поехали">
 		<location>z:\Счета\06_Поехали\</location>
+		<upperActTitle>Акт выполненных работ № 06</upperActTitle>
+		<lowerActTitle>Выдан ФЛП Ицкович А.Н. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="2" cost="400" />
+		</services>
+		<discount>50</discount>
 	</Client>
+	
+	
 	<Client name="Протежэ">
 		<location>z:\Счета\07_Протеже\</location>
+		<upperActTitle>Акт выполненных работ № 07</upperActTitle>
+		<lowerActTitle>Выдан  ЧП Маргаритова С.Л. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="9" cost="400" />
+		 	<service description="Сопровождение видеонаблюдения" count="1" cost="100" />
+		 	<service description="Обслуживание серверов" count="4" cost="600" />
+		 	<server description="Аренда сервера в ДЦ „Хецнер“ по курсу 31,26" count="1" cost="1854.17" />
+		</services>
+		<discount>50</discount>
 	</Client>
+	
+	
 	<Client name="Экстрапластик">
 		<location>z:\Счета\09_Пластик+\</location>
+		<upperActTitle>Акт выполненных работ № 09</upperActTitle>
+		<lowerActTitle>Выдан  ООО с ИИ «Экстра Пластик» </lowerActTitle>
+		<services>
+			<service description="Остаток по обслуживанию оргтехники за вычетом 800 грн безнала" count="1" cost="2400" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Техноэкос">
 		<location>z:\Счета\21_Техноэкос\</location>
+		<upperActTitle>Акт выполненных работ № 21</upperActTitle>
+		<lowerActTitle>Выдан ПП НВЦ «Техноэкос» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="9" cost="400" />
+		</services>
+		<discount>40</discount>
 	</Client>
+	
+	
 	<Client name="Швейка">
 		<location>z:\Счета\22_Швейная Б 2300\10_Акты_швейка\</location>
+		<upperActTitle>Акт выполненных работ № 22</upperActTitle>
+		<lowerActTitle>Выдан ФЛП Левина Т.М. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="29" cost="51,72" />
+			<service description="Обслуживание серверов" count="3" cost="166,60" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Хотгриль">
 		<location>z:\Счета\24_Хотгриль\</location>
+		<upperActTitle>Акт выполненных работ № 24Х</upperActTitle>
+		<lowerActTitle>Выдан ФЛП Жадан Н.В.  </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="5" cost="400" />
+			<service description="Обслуживание серверов" count="2" cost="600" />
+		</services>
+		<discount>43</discount>
 	</Client>
+	
+	
 	<Client name="Оптидея">
 		<location>z:\Счета\25_Оптидея+\</location>
-		<upperActTitle>Счет №25</upperActTitle>
+		<upperActTitle>Акт выполненных работ № 25</upperActTitle>
 		<lowerActTitle>Выдан ООО «Оптидея Плюс» за </lowerActTitle>
 		<services>
 			<service description="Обслуживание рабочих станций" count="10" cost="400" />
-			<server description="Оплата Сервер + второй IP 56,49 евро по курсу 31,26" count="1" cost="1854.17" /> 
+		 	<server description="Оплата Сервер + второй IP 56,49 евро по курсу 31,26" count="1" cost="1854.17" />
 			<service description="Обслуживание серверов" count="2" cost="600" />
 		</services>
 		<discount>40</discount>
 	</Client>
+	
+	
 	<Client name="Ангелдент">
 		<location>z:\Счета\26_АнгелДент\</location>
+		<upperActTitle>Акт выполненных работ № 26</upperActTitle>
+		<lowerActTitle>Выдан ФЛП Невинчаный И.Е. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="8" cost="400" />
+			<service description="Обслуживание серверов" count="1" cost="600" />
+		</services>
+		<discount>33</discount>
 	</Client>
+	
+	
 	<Client name="Джайпур">
 		<location>z:\Счета\31_Джайпур\</location>
+		<upperActTitle>Акт выполненных работ № 31</upperActTitle>
+		<lowerActTitle>Выдан ФОП Ковальчук Г.В. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="7,5" cost="400" />
+			<service description="Обслуживание физических серверов" count="2" cost="600" />
+		</services>
+		<discount>33</discount>
 	</Client>
+	
+	
 	<Client name="Вебтранс">
 		<location>z:\Счета\32_Вебтранс+\</location>
+		<upperActTitle>Акт выполненных работ № 32</upperActTitle>
+		<lowerActTitle>Выдан ООО «Вебтранс-Логистик Плюс» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="27" cost="100" />
+		 	<server description="Оплата серверов 133,56 евро по курсу 31,26" count="1" cost="1854.17" /> <!-- =133,56*31,26*1,05 -->
+		 	<server description="Оплата доп. IP адресов 10,29 евро по курсу 31,26" count="1" cost="337.75" /> <!-- =10,29*31,26*1,05 -->		
+			<service description="Обслуживание серверов" count="7" cost="200" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Гринвич">
 		<location>z:\Счета\33_Гринвич\</location>
+		<upperActTitle>Акт выполненных работ № 32</upperActTitle>
+		<lowerActTitle>Выдан ФЛП Шутин А. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="2" cost="400" />
+			<service description="Обслуживание серверов" count="1" cost="600" />
+		</services>
+		<discount>33</discount>
 	</Client>
+	
+	
 	<Client name="Колетт">
 		<location>z:\Счета\34_Коллет\</location>
+		<upperActTitle>Акт выполненных работ № 34</upperActTitle>
+		<lowerActTitle>Выдан ФОП Гребенюк Р.Ю. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="7" cost="400" />
+			<service description="Обслуживание серверов" count="2" cost="600" />
+		</services>
+		<discount>33</discount>
 	</Client>
+	
+	
 	<Client name="Велики">
 		<location>z:\Счета\35_ВелоФМ\</location>
+		<upperActTitle>Акт выполненных работ № 35</upperActTitle>
+		<lowerActTitle>Выдан ФОП Митянин И.В. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="8" cost="400" />
+			<service description="Обслуживание серверов" count="1" cost="600" />
+		</services>
+		<discount>45</discount>
 	</Client>
+	
+	
 	<Client name="Арколон">
 		<location>z:\Счета\36_Арколон+\</location>
+		<upperActTitle>Акт выполненных работ № 36</upperActTitle>
+		<lowerActTitle>Выдан ЧП «Арколон-5» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="8" cost="400" />
+			<service description="Обслуживание серверов" count="1" cost="600" />
+		</services>
+		<discount>33</discount>
 	</Client>
+	
+	
 	<Client name="Чарли">
 		<location>z:\Счета\37_Чарли\</location>
+		<upperActTitle>Акт выполненных работ № 37</upperActTitle>
+		<lowerActTitle>Выдан ООО «Ваш ресторан» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="8" cost="400" />
+			<service description="Обслуживание серверов" count="2" cost="600" />
+		</services>
+		<discount>54</discount>
 	</Client>
+	
+	
 	<Client name="Левел">
 		<location>z:\Счета\38_Левелап\</location>
+		<upperActTitle>Счет № 38</upperActTitle>
+		<lowerActTitle>Выдан ООО «Левелап» </lowerActTitle>
+		<services>
+			<service description="Деятельность по управления компьютерным оборудованием" count="1" cost="7000" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Эдбург">
 		<location>z:\Счета\39_Эдбург\</location>
+		<upperActTitle>Акт выполненных работ № 39</upperActTitle>
+		<lowerActTitle>Выдан ФЛП Шнейдер Н.Н.  </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="6" cost="400" />
+			<service description="Обслуживание серверов" count="1" cost="600" />
+		</services>
+		<discount>33</discount>
 	</Client>
+	
+	
 	<Client name="Мыши">
 		<location>z:\Счета\40_Мыши\</location>
+		<upperActTitle>Акт выполненных работ № 40</upperActTitle>
+		<lowerActTitle>Выдан ФОП Буряк О.О.  </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="5" cost="400" />
+			<service description="Обслуживание серверов" count="1" cost="600" />
+		</services>
+		<discount>15</discount>
 	</Client>
+	
+	
 	<Client name="Либра">
 		<location>z:\Счета\41_Либра зет\</location>
+		<upperActTitle>Акт выполненных работ № 41</upperActTitle>
+		<lowerActTitle>Выдан за ООО «Либра Зет» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="10" cost="400" />
+			<service description="Обслуживание серверов" count="3" cost="600" />
+		</services>
+		<discount>46</discount>
 	</Client>
+	
+	
 	<Client name="Электроснаб">
 		<location>z:\Счета\42_Электропостачбуд\</location>
+		<upperActTitle>Акт выполненных работ № 42</upperActTitle>
+		<lowerActTitle>Выдан ТОВ «Електропостачзбут» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="9" cost="400" />
+		 	<server description="Оплата серверов в ДЦ" count="1" cost="1854.17" /> <!-- 79,9*26,95*1,05 -->
+			<service description="Обслуживание серверов" count="2" cost="600" />
+		</services>
+		<discount>26</discount>
 	</Client>
+	
+	
 	<Client name="Мегаавто">
 		<location>z:\Счета\43_Мегаавтоинвест+\</location>
+		<upperActTitle>Акт выполненных работ № 43</upperActTitle>
+		<lowerActTitle>Выдан ТОВ «Мегаавтоинвест» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="3" cost="400" />
+		 	<server description="Оплата серверов в ДЦ курс евро 31,26" count="1" cost="1854.17" /> <!-- 54,9*1,029*1,05*31,26 -->
+			<service description="Обслуживание серверов" count="1" cost="600" />
+		</services>
+		<discount>10</discount>
 	</Client>
+	
+	
 	<Client name="Сафари">
 		<location>z:\Счета\44_Сафари(оружие)+\</location>
+		<upperActTitle>Акт выполненных работ № 44</upperActTitle>
+		<lowerActTitle>Выдан ФОП «Панаскіна О.М» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="23" cost="300" />
+			<service description="Обслуживание серверов (Гипервизор в офисе 2 вирт. сервера. Гипервизор в хецнер 4 вирт сервера)" count="2" cost="500" />
+		</services>
+		<discount>50</discount>
 	</Client>
+	
+	
 	<Client name="Итис">
 		<location>z:\Счета\45_Итис+\</location>
+		<upperActTitle>Акт выполненных работ № 45</upperActTitle>
+		<lowerActTitle>Выдан ФОП Савенко А.В. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="6" cost="400" />
+			<service description="Обслуживание серверов" count="1" cost="600" />
+		</services>
+		<discount>33</discount>
 	</Client>
+	
+	
 	<Client name="Мобиндастри">
 		<location>z:\Счета\51_Мобиндастри\</location>
+		<upperActTitle>Акт выполненных работ № 51</upperActTitle>
+		<lowerActTitle>Выдан ТОВ «Мобиндастри» </lowerActTitle>
+		<services>
+		 	<server description="Оплата серверов в ДЦ  56,50 курс евро 31,26" count="1" cost="1854.17" /> <!-- 54,9*1,029*1,05*31,26 -->
+			<service description="Обслуживание серверов ($20 по 26,9)" count="1" cost="600" /> <!-- 20*26,9 -->
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Флаверс">
 		<location>z:\Счета\52_flowers\</location>
+		<upperActTitle>Акт выполненных работ № 52</upperActTitle>
+		<lowerActTitle>Выдан «Flowers» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="4" cost="400" />
+		</services>
+		<discount>50</discount>
 	</Client>
+	
+	
 	<Client name="Импера">
 		<location>z:\Счета\53_Импера\</location>
+		<upperActTitle>Счет № 53</upperActTitle>
+		<lowerActTitle>Выдан ООО «Импера Групп» </lowerActTitle>
+		<services>
+			<server description="Аренда серверов Server #1 , курс 31,26" count="1" cost="1854.17" /> <!-- (57,98+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #2 , курс 31,26" count="1" cost="1854.17" /> <!-- 54,9*1,05*31,26 -->
+			<server description="Аренда серверов Server #4 , курс 31,26" count="1" cost="1854.17" /> <!-- (39+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #5 , курс 31,26" count="1" cost="1854.17" /> <!-- (39+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #6 , курс 31,26" count="1" cost="1854.17" /> <!-- (39+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #7 , курс 31,26" count="1" cost="1854.17" /> <!-- (39+0,84)*1,05*31,26 -->
+			<service description="Деятельность по управлению компьютерным оборудованием" count="1" cost="4500" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Троя">
 		<location>z:\Счета\54_Троя\</location>
+		<upperActTitle>Акт виконаних робіт № 54</upperActTitle>
+		<lowerActTitle>Згідно договору про надання послуг з інформатизації №54/01/16 від 03.01.2016 р. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="10" cost="400" />
+		 	<server description="Оплата Сервер + второй IP 56,49 евро по курсу 31,26" count="1" cost="1854.17" />
+			<service description="Обслуживание серверов" count="2" cost="600" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="ДРС">
 		<location>z:\Счета\55_Drs\</location>
+		<upperActTitle>Акт виконаних робіт № 55</upperActTitle>
+		<lowerActTitle></lowerActTitle>
+		<services>
+			<service description="Обслуживание серверов" count="1" cost="400" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Аквапарк">
 		<location>z:\Счета\56_аквапарк\</location>
+		<upperActTitle>Акт выполненных работ № 56</upperActTitle>
+		<lowerActTitle>Выдан Аквапарк «Happy Day» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="20" cost="145" />
+		 	<service description="Обслуживание серверов" count="1" cost="600" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Селена">
 		<location>z:\Счета\57_Селена\</location>
+		<upperActTitle>Акт виконаних робіт № 57</upperActTitle>
+		<lowerActTitle>Згідно договору про надання послуг з інформатизації №57/07-16 від 18.07.2016 р.</lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="8" cost="250" />
+			<service description="Обслуживание серверов" count="1" cost="300" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Микра">
 		<location>z:\Счета\58_Микра+\</location>
+		<upperActTitle>Акт виконаних робіт № 58</upperActTitle>
+		<lowerActTitle>Выдан ФОП УСЕНКО ВІКТОРІЯ ВІКТОРІВНА </lowerActTitle>
+		<services>
+			<service description="Обслуговування робочих станцій" count="2" cost="250" />
+		 	<server description="Оренда сервера  40 євро за курсом 31,26" count="1" cost="1854.17" /> <!-- 40*31,26 -->
+			<service description="Обслуговування серверів" count="1" cost="300" />
+			<service description="Супровід ПО 1С" count="1" cost="1000" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Майсток">
 		<location>z:\Счета\59_mystok\</location>
+		<upperActTitle>Счет № 59</upperActTitle>
+		<lowerActTitle>Выдан Mystok  </lowerActTitle>
+		<services>
+			<service description="Оплата хостинга" count="1" cost="277" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Делфиш">
 		<location>z:\Счета\61_Делфиш\</location>
+		<upperActTitle>Счет № 61</upperActTitle>
+		<lowerActTitle>Выдан ТОВ «Делфиш» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="9" cost="400" />
+			<service description="Обслуживание серверов" count="1" cost="600" />
+		</services>
+		<discount>28</discount>
 	</Client>
+	
+	
 	<Client name="КЭН">
 		<location>z:\Счета\62_CAN_invoices@can.ua\</location>
+		<upperActTitle>Акт выполненных работ № 62</upperActTitle>
+		<lowerActTitle>Выдан ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ "КЭН" </lowerActTitle>
+		<services>
+			<service description="Обслуживание сервера" count="1" cost="1500" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Бананы">
 		<location>z:\Счета\63_Бананы\</location>
+		<upperActTitle>Счет № 63</upperActTitle>
+		<lowerActTitle>Выдан «Банана Клаб» </lowerActTitle>
+		<services>
+			<service description="IT поддержка" count="1" cost="2000" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Акма">
 		<location>z:\Счета\65_АКМА\</location>
+		<upperActTitle>Счет № 65</upperActTitle>
+		<lowerActTitle>Выдан «ПП ВКФ «АКМА»» </lowerActTitle>
+		<services>
+			<service description="IT поддержка" count="1" cost="3000" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Диекс">
 		<location>z:\Счета\66_Диекс\</location>
+		<upperActTitle>Акт выполненных работ № 66</upperActTitle>
+		<lowerActTitle>Выдан ТОВ СП «Товариство технічного нагляду ДІЕКС» </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="78" cost="250" />
+			<service description="Обслуживание серверов" count="4" cost="400" />
+		</services>
+		<discount>50</discount>
 	</Client>
+	
+	
 	<Client name="Алкомаркет">
 		<location>z:\Счета\68_Алкомаркет\</location>
+		<upperActTitle>Акт виконаних робіт № 68</upperActTitle>
+		<lowerActTitle>Выдан </lowerActTitle>
+		<services>
+			<service description="Аренда серверов" count="1" cost="530,40" />
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 	<Client name="Барон">
 		<location>z:\Счета\69_Барон\</location>
+		<upperActTitle>Акт выполненных работ № 69</upperActTitle>
+		<lowerActTitle>Выдан “Барон Разгуляеff” </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="14" cost="400" />
+			<service description="Обслуживание серверов" count="1" cost="600" />
+		</services>
+		<discount>20</discount>
 	</Client>
+	
+	
 	<Client name="Камелот">
 		<location>z:\Счета\70_Камелот\</location>
+		<upperActTitle>Счет №70</upperActTitle>
+		<lowerActTitle>Выдан Камелот</lowerActTitle>
+		<services>
+		
+		</services>
+		<discount>0</discount>
 	</Client>
+	
+	
 </Clients>

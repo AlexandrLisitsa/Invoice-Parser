@@ -19,6 +19,7 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 
+import com.invoice.client.Addition;
 import com.invoice.client.Client;
 import com.invoice.client.Delivery;
 import com.invoice.client.ReloadCartridge;
@@ -44,6 +45,7 @@ public class DOCXcreator {
 		createActHead();
 		createActTitle();
 		ctrateActTable();
+		createActRequisite();
 		save();
 	}
 
@@ -51,55 +53,66 @@ public class DOCXcreator {
 		createTableDebt();
 		createTableServices();
 		createTableDiscount();
-		createTableAdditions();
+		if (client.getCartridges().size() + client.getDeliveries().size() + client.getAdditions().size() != 0) {
+			createTableAdditions();
+		}
 		createTableTotal();
 	}
 
 	private void createTableTotal() {
-		createTableTitle(null,"ИТОГО",null,null,null);
+		createTableTitle(null, "ИТОГО", null, null, null);
 		table.getRow(0).getCell(4).getParagraphs().get(0).getRuns().get(0).setBold(true);
 		table.getRow(0).getCell(4).getParagraphs().get(0).getRuns().get(0).setText(getFormatedDecimal(createTotal()));
 		formatTable(table);
 	}
 
 	private double createTotal() {
-		double x=0;
-		x+=client.getTotalServersCost()+(client.getTotalServiceCost()-(client.getTotalServiceCost()*(client.getDiscount()/100)));
-		x+=client.getTotalCartridgeCostWith25();
-		x+=client.getTotalDeliveriesCostWith10Percent();
-		x+=client.getDebt();
+		double x = 0;
+		x += client.getTotalServersCost()
+				+ (client.getTotalServiceCost() - (client.getTotalServiceCost() * (client.getDiscount() / 100)));
+		x += client.getTotalCartridgeCostWith25();
+		x += client.getTotalDeliveriesCostWith10Percent();
+		x += client.getDebt();
+		x += client.getTotalAdditionsCost();
 		return x;
 	}
 
 	private void createTableDiscount() {
-		createTableTitle(null,"Скидка на услуги(без серверов): "+client.getDiscount()+" %",null,null,null);
-		table.getRow(0).getCell(2).setText("Итого");
-		table.getRow(0).getCell(4).setText(getFormatedDecimal(client.getTotalServersCost()+(client.getTotalServiceCost()-(client.getTotalServiceCost()*(client.getDiscount()/100)))));
-		formatTable(table);
+		if (client.getDiscount() > 0) {
+			createTableTitle(null, "Скидка на услуги(без серверов): " + client.getDiscount() + " %", null, null, null);
+			table.getRow(0).getCell(2).setText("Итого");
+			table.getRow(0).getCell(4).setText(getFormatedDecimal(client.getTotalServersCost()
+					+ (client.getTotalServiceCost() - (client.getTotalServiceCost() * (client.getDiscount() / 100)))));
+			formatTable(table);
+		}
 	}
 
 	private void createTableServices() {
-		createTableTitle("№","Услуги:","Кол-во","Цена,грн","Стоимость,грн");
-		formatTable(table);
-		
-		int row=0;
-		
-		//создание таблицы сервисов
-		table = doc.createTable(client.getServices().size()+client.getServers().size(), 5);
-		formatTable(table);
-		for(int i=row;row<client.getServices().size();i++,row++) {
-			table.getRow(row).getCell(0).setText(String.valueOf(i+1));
-			table.getRow(row).getCell(1).setText(client.getServices().get(i).getDescription());
-			table.getRow(row).getCell(2).setText(getFormatedDecimal(client.getServices().get(i).getCount()));
-			table.getRow(row).getCell(3).setText(getFormatedDecimal(client.getServices().get(i).getPrice()));
-			table.getRow(row).getCell(4).setText(getFormatedDecimal((client.getServices().get(i).getPrice()*client.getServices().get(row).getCount())));
-		}
-		for(int i=0;i<client.getServers().size();i++,row++) {
-			table.getRow(row).getCell(0).setText(String.valueOf(row+1));
-			table.getRow(row).getCell(1).setText(client.getServers().get(i).getDescription());
-			table.getRow(row).getCell(2).setText(getFormatedDecimal(client.getServers().get(i).getCount()));
-			table.getRow(row).getCell(3).setText(getFormatedDecimal(client.getServers().get(i).getPrice()));
-			table.getRow(row).getCell(4).setText(getFormatedDecimal((client.getServers().get(i).getPrice()*client.getServers().get(i).getCount())));
+		if (client.getServices().size() > 0) {
+			createTableTitle("№", "Услуги:", "Кол-во", "Цена,грн", "Стоимость,грн");
+			formatTable(table);
+
+			int row = 0;
+
+			// создание таблицы сервисов
+			table = doc.createTable(client.getServices().size() + client.getServers().size(), 5);
+			formatTable(table);
+			for (int i = row; row < client.getServices().size(); i++, row++) {
+				table.getRow(row).getCell(0).setText(String.valueOf(i + 1));
+				table.getRow(row).getCell(1).setText(client.getServices().get(i).getDescription());
+				table.getRow(row).getCell(2).setText(getFormatedDecimal(client.getServices().get(i).getCount()));
+				table.getRow(row).getCell(3).setText(getFormatedDecimal(client.getServices().get(i).getPrice()));
+				table.getRow(row).getCell(4).setText(getFormatedDecimal(
+						(client.getServices().get(i).getPrice() * client.getServices().get(row).getCount())));
+			}
+			for (int i = 0; i < client.getServers().size(); i++, row++) {
+				table.getRow(row).getCell(0).setText(String.valueOf(row + 1));
+				table.getRow(row).getCell(1).setText(client.getServers().get(i).getDescription());
+				table.getRow(row).getCell(2).setText(getFormatedDecimal(client.getServers().get(i).getCount()));
+				table.getRow(row).getCell(3).setText(getFormatedDecimal(client.getServers().get(i).getPrice()));
+				table.getRow(row).getCell(4).setText(getFormatedDecimal(
+						(client.getServers().get(i).getPrice() * client.getServers().get(i).getCount())));
+			}
 		}
 	}
 
@@ -107,13 +120,15 @@ public class DOCXcreator {
 		// создание заголовка таблицы
 		ArrayList<ReloadCartridge> cartridge = client.getCartridges();
 		ArrayList<Delivery> deliveries = client.getDeliveries();
+		ArrayList<Addition> additions = client.getAdditions();
 		int row = 0;
-		
-		createTableTitle("№","Дополнительные услуги:","Кол-во","Цена,грн","Стоимость,грн");
+
+		createTableTitle("№", "Дополнительные услуги:", "Кол-во", "Цена,грн", "Стоимость,грн");
 		formatTable(table);
 
 		// создание таблицы допов/поставок/заправок
-		table = doc.createTable(client.getDeliveries().size() + client.getCartridges().size(), 5);
+		table = doc.createTable(
+				client.getDeliveries().size() + client.getCartridges().size() + client.getAdditions().size(), 5);
 		formatTable(table);
 		// заполнение таблицы допов/поставок/заправок
 
@@ -123,7 +138,7 @@ public class DOCXcreator {
 			table.getRow(row).getCell(1).setText(cartridge.get(c).getDate() + " " + cartridge.get(c).getPrinter() + " "
 					+ cartridge.get(c).getWorkDescription());
 			table.getRow(row).getCell(2).setText(getFormatedDecimal(cartridge.get(c).getCount()));
-			table.getRow(row).getCell(3).setText(getFormatedDecimal(cartridge.get(c).getCostUAH()+25));
+			table.getRow(row).getCell(3).setText(getFormatedDecimal(cartridge.get(c).getCostUAH() + 25));
 			table.getRow(row).getCell(4).setText(getFormatedDecimal(
 					cartridge.get(c).getCount() * cartridge.get(c).getCostUAH() + (25 * cartridge.get(c).getCount())));
 		}
@@ -135,6 +150,16 @@ public class DOCXcreator {
 			table.getRow(row).getCell(3).setText(getFormatedDecimal(deliveries.get(d).getCostUAH() * 1.1));
 			table.getRow(row).getCell(4)
 					.setText(getFormatedDecimal(deliveries.get(d).getCount() * (deliveries.get(d).getCostUAH() * 1.1)));
+		}
+		// допы
+		for (int dop = 0; dop < client.getAdditions().size(); dop++, row++) {
+			table.getRow(row).getCell(0).setText(String.valueOf(row + 1));
+			table.getRow(row).getCell(1)
+					.setText(additions.get(dop).getDate() + " " + additions.get(dop).getDescription());
+			table.getRow(row).getCell(2).setText(getFormatedDecimal(additions.get(dop).getCount()));
+			table.getRow(row).getCell(3).setText(getFormatedDecimal(additions.get(dop).getCostUAH()));
+			table.getRow(row).getCell(4)
+					.setText(getFormatedDecimal(additions.get(dop).getCount() * (additions.get(dop).getCostUAH())));
 		}
 	}
 
@@ -248,10 +273,10 @@ public class DOCXcreator {
 		run.setBold(true);
 		run.setText(client.getLowerActTitle() + Months.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
 				+ calendar.get(Calendar.YEAR) + " г.");
-		//акт является счетом
-		paragraph=doc.createParagraph();
+		// акт является счетом
+		paragraph = doc.createParagraph();
 		paragraph.setAlignment(ParagraphAlignment.CENTER);
-		run=paragraph.createRun();
+		run = paragraph.createRun();
 		run.setFontSize(9);
 		run.setText("Счет является актом выполненных работ.Стороны претензий не имеют");
 	}
@@ -261,6 +286,32 @@ public class DOCXcreator {
 			return "1";
 		} else {
 			return String.valueOf(calendar.get(Calendar.MONTH) + 1);
+		}
+	}
+
+	private void createActRequisite() {
+		paragraph = doc.createParagraph();
+		run = paragraph.createRun();
+		String imagePath = "res/Оптидея.png";
+
+		try {
+			is = new FileInputStream(imagePath);
+			try {
+				run.addPicture(is, XWPFDocument.PICTURE_TYPE_PNG, imagePath, Units.toEMU(460), Units.toEMU(93));
+			} catch (InvalidFormatException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} finally {
+			try {
+				is.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -324,8 +375,8 @@ public class DOCXcreator {
 			}
 		}
 	}
-	
-	private void createTableTitle(String number,String description,String count,String price,String totalCost) {
+
+	private void createTableTitle(String number, String description, String count, String price, String totalCost) {
 		table = doc.createTable(1, 5);
 		for (int i = 0; i < 5; i++) {
 			List<XWPFParagraph> tpar = table.getRow(0).getCell(i).getParagraphs();

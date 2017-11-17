@@ -7,8 +7,6 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import com.invoice.client.Client;
-import com.invoice.client.Server;
-import com.invoice.client.Service;
 import com.invoice.creator.DOCXcreator;
 import com.invoice.creator.InvoiceBuilder;
 import com.invoice.parse.AdditionParse;
@@ -26,7 +24,7 @@ public class Main {
 	private InvoiceBuilder builder = new InvoiceBuilder(progress);
 	private ArrayList<Client> clients = new ArrayList<Client>();
 	private Config cfg = new Config();
-	private DOCXcreator docParser = new DOCXcreator();
+	private DOCXcreator docCreator = new DOCXcreator();
 	private AdditionParse additionParse = new AdditionParse();
 
 	public static void main(String[] args) {
@@ -39,20 +37,20 @@ public class Main {
 		}
 		Main m = new Main();
 		m.loadCreator();
-		m.test();
+		//m.test();
+		m.createDOCXInvoices();
 	}
 
+	private void createDOCXInvoices() {
+		for(int i=0;i<clients.size();i++) {
+			docCreator.createInvoice(clients.get(i));
+		}
+	}
 
 	private void test() {
 		for(int i=0;i<clients.size();i++) {
-			if(clients.get(i).getClientName().equalsIgnoreCase("оптидея")) {
-				docParser.createInvoice(clients.get(i));
-			}
-			for (Server x : clients.get(i).getServers()) {
-				System.out.println(x.getDescription()+" "+x.getCount()+" "+x.getPrice());
-			}
-			for (Service x : clients.get(i).getServices()) {
-				System.out.println(x.getDescription()+" "+x.getCount()+" "+x.getPrice());
+			if(clients.get(i).getClientName().equalsIgnoreCase("восход")) {
+				docCreator.createInvoice(clients.get(i));
 			}
 		}	
 	}
@@ -69,6 +67,7 @@ public class Main {
 		cartridgeParser.parse(clients,cfg.getCartridgePath());
 		System.out.println("addition parser");
 		additionParse.parseDebt(clients, cfg.getAdditionPath());
+		additionParse.parseAdditions(clients, cfg.getAdditionPath());
 		System.out.println("create invoices");
 		builder.create(clients,cfg.getInvoiceCreationPath());
 		progress.getLabel().setForeground(Color.GREEN);
