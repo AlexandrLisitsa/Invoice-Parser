@@ -37,6 +37,11 @@ public class ProgressPage {
 		initLabel();
 		frame.setVisible(true);
 	}
+	
+	public void removeExtendedBar() {
+		frame.remove(extendetBar);
+	}
+	
 	public void initExtBar() {
 		extendetBar.setSize(500, 25);
 		extendetBar.setLocation(0,162-24);

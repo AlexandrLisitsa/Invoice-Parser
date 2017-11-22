@@ -42,17 +42,14 @@ public class Main {
 	}
 
 	private void createDOCXInvoices() {
+		progress.removeExtendedBar();
 		for(int i=0;i<clients.size();i++) {
-			docCreator.createInvoice(clients.get(i));
+			docCreator.createInvoice(clients.get(i));	
+			progress.updateBar(clients.size(),i+1, "Create Invoice: "+clients.get(i).getClientName(), true);
 		}
-	}
-
-	private void test() {
-		for(int i=0;i<clients.size();i++) {
-			if(clients.get(i).getClientName().equalsIgnoreCase("восход")) {
-				docCreator.createInvoice(clients.get(i));
-			}
-		}	
+		progress.getLabel().setForeground(Color.GREEN);
+		progress.getLabel().setText("Done");
+		System.out.println("Done");
 	}
 
 
@@ -70,8 +67,5 @@ public class Main {
 		additionParse.parseAdditions(clients, cfg.getAdditionPath());
 		System.out.println("create invoices");
 		builder.create(clients,cfg.getInvoiceCreationPath());
-		progress.getLabel().setForeground(Color.GREEN);
-		progress.getLabel().setText("Done");
-		System.out.println("Done");
 	}
 }

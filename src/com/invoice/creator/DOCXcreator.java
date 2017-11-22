@@ -271,7 +271,7 @@ public class DOCXcreator {
 		run.setFontSize(16);
 		run.setFontFamily("times new roman");
 		run.setBold(true);
-		run.setText(client.getLowerActTitle() + Months.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
+		run.setText(client.getLowerActTitle() +"за "+ Months.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
 				+ calendar.get(Calendar.YEAR) + " г.");
 		// акт является счетом
 		paragraph = doc.createParagraph();
@@ -343,8 +343,9 @@ public class DOCXcreator {
 
 	private void save() {
 		try {
-			doc.write(new FileOutputStream(new File(client.getClientName() + ".docx")));
+			doc.write(new FileOutputStream(new File("C:\\Users\\wypik\\Desktop\\invoices\\DOCX\\"+client.getClientName() + ".docx")));
 			doc.close();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
