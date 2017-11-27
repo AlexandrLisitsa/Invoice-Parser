@@ -37,13 +37,13 @@ public class Main {
 		}
 		Main m = new Main();
 		m.loadCreator();
-		//m.test();
 		m.createDOCXInvoices();
 	}
 
 	private void createDOCXInvoices() {
 		progress.removeExtendedBar();
 		for(int i=0;i<clients.size();i++) {
+			System.out.println(clients.get(i).getRequisiteImgPath());
 			docCreator.createInvoice(clients.get(i));	
 			progress.updateBar(clients.size(),i+1, "Create Invoice: "+clients.get(i).getClientName(), true);
 		}

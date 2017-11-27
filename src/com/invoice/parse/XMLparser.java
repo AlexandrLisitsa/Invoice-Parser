@@ -88,6 +88,9 @@ public class XMLparser {
 					if (locList.item(tmpList).getNodeName().equals("services")) {
 						addServices(locList, tmpList, clients);
 					}
+					if (locList.item(tmpList).getNodeName().equals("requisitesImage")) {
+						clients.get(clients.size() - 1).setRequisiteImgPath(locList.item(tmpList).getTextContent());
+					}
 				}
 			}
 		}

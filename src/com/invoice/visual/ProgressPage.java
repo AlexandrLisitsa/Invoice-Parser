@@ -40,6 +40,7 @@ public class ProgressPage {
 	
 	public void removeExtendedBar() {
 		frame.remove(extendetBar);
+		frame.repaint();
 	}
 	
 	public void initExtBar() {

@@ -6,7 +6,11 @@ public class Config {
 	private String DeliveryPath;
 	private String InvoiceCreationPath;
 	private String AdditionPath;
-	
+
+	void test(){
+		System.out.println("dsf");
+	}
+
 	public String getCartridgePath() {
 		return CartridgePath;
 	}

@@ -1,5 +1,6 @@
 package com.invoice.creator;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,6 +10,9 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.util.Units;
@@ -46,6 +50,7 @@ public class DOCXcreator {
 		createActTitle();
 		ctrateActTable();
 		createActRequisite();
+		//createTestActRequisite();
 		save();
 	}
 
@@ -271,7 +276,7 @@ public class DOCXcreator {
 		run.setFontSize(16);
 		run.setFontFamily("times new roman");
 		run.setBold(true);
-		run.setText(client.getLowerActTitle() +"за "+ Months.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
+		run.setText(client.getLowerActTitle() +" за "+ Months.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
 				+ calendar.get(Calendar.YEAR) + " г.");
 		// акт является счетом
 		paragraph = doc.createParagraph();
@@ -292,15 +297,22 @@ public class DOCXcreator {
 	private void createActRequisite() {
 		paragraph = doc.createParagraph();
 		run = paragraph.createRun();
-		String imagePath = "res/Оптидея.png";
-
+		String imagePath = client.getRequisiteImgPath();
+		BufferedImage img=null;
+		try {
+			img = ImageIO.read(new File(client.getRequisiteImgPath()));
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			//e2.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Не заполнены реквизиты "+client.getClientName());
+		}
 		try {
 			is = new FileInputStream(imagePath);
 			try {
-				run.addPicture(is, XWPFDocument.PICTURE_TYPE_PNG, imagePath, Units.toEMU(460), Units.toEMU(93));
+				run.addPicture(is, XWPFDocument.PICTURE_TYPE_PNG, imagePath, Units.toEMU(img.getWidth()*0.7), Units.toEMU(img.getHeight()*0.7));
 			} catch (InvalidFormatException | IOException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block

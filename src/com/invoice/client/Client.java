@@ -12,10 +12,7 @@ public class Client {
 	private ArrayList<Service> services = new ArrayList<Service>();
 	private ArrayList<Server> servers = new ArrayList<Server>();
 	private ArrayList<Addition> additions = new ArrayList<Addition>();
-	private String location;
-	private String clientName;
-	private String upperActTitle;
-	private String lowerActTitle;
+	private String location,clientName,upperActTitle,lowerActTitle,requisiteImgPath;
 	private double accrued;
 	private double payd;
 	private double discount;
@@ -158,6 +155,14 @@ public class Client {
 
 	public void setAdditions(ArrayList<Addition> additions) {
 		this.additions = additions;
+	}
+
+	public String getRequisiteImgPath() {
+		return requisiteImgPath;
+	}
+
+	public void setRequisiteImgPath(String requisiteImgPath) {
+		this.requisiteImgPath = requisiteImgPath;
 	}
 
 }
