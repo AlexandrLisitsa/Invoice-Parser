@@ -16,6 +16,7 @@ public class Client {
 	private double accrued;
 	private double payd;
 	private double discount;
+	private boolean isAct;
 	
 	public double getTotalAdditionsCost() {
 		double x=0;
@@ -163,6 +164,14 @@ public class Client {
 
 	public void setRequisiteImgPath(String requisiteImgPath) {
 		this.requisiteImgPath = requisiteImgPath;
+	}
+
+	public boolean isAct() {
+		return isAct;
+	}
+
+	public void setAct(boolean isAct) {
+		this.isAct = isAct;
 	}
 
 }

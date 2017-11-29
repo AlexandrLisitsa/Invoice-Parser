@@ -50,7 +50,6 @@ public class DOCXcreator {
 		createActTitle();
 		ctrateActTable();
 		createActRequisite();
-		//createTestActRequisite();
 		save();
 	}
 
@@ -84,7 +83,7 @@ public class DOCXcreator {
 
 	private void createTableDiscount() {
 		if (client.getDiscount() > 0) {
-			createTableTitle(null, "Скидка на услуги(без серверов): " + client.getDiscount() + " %", null, null, null);
+			createTableTitle(null, "Скидка на услуги(без аренды серверов): " + client.getDiscount() + " %", null, null, null);
 			table.getRow(0).getCell(2).setText("Итого");
 			table.getRow(0).getCell(4).setText(getFormatedDecimal(client.getTotalServersCost()
 					+ (client.getTotalServiceCost() - (client.getTotalServiceCost() * (client.getDiscount() / 100)))));
@@ -276,14 +275,16 @@ public class DOCXcreator {
 		run.setFontSize(16);
 		run.setFontFamily("times new roman");
 		run.setBold(true);
-		run.setText(client.getLowerActTitle() +" за "+ Months.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
+		run.setText(client.getLowerActTitle() + " за " + Months.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
 				+ calendar.get(Calendar.YEAR) + " г.");
 		// акт является счетом
-		paragraph = doc.createParagraph();
-		paragraph.setAlignment(ParagraphAlignment.CENTER);
-		run = paragraph.createRun();
-		run.setFontSize(9);
-		run.setText("Счет является актом выполненных работ.Стороны претензий не имеют");
+		if (!client.isAct()) {
+			paragraph = doc.createParagraph();
+			paragraph.setAlignment(ParagraphAlignment.CENTER);
+			run = paragraph.createRun();
+			run.setFontSize(9);
+			run.setText("Счет является актом выполненных работ.Стороны претензий не имеют");
+		}
 	}
 
 	private String incrimentMonth() {
@@ -298,21 +299,22 @@ public class DOCXcreator {
 		paragraph = doc.createParagraph();
 		run = paragraph.createRun();
 		String imagePath = client.getRequisiteImgPath();
-		BufferedImage img=null;
+		BufferedImage img = null;
 		try {
 			img = ImageIO.read(new File(client.getRequisiteImgPath()));
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
-			//e2.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Не заполнены реквизиты "+client.getClientName());
+			// e2.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Не заполнены реквизиты " + client.getClientName());
 		}
 		try {
 			is = new FileInputStream(imagePath);
 			try {
-				run.addPicture(is, XWPFDocument.PICTURE_TYPE_PNG, imagePath, Units.toEMU(img.getWidth()*0.7), Units.toEMU(img.getHeight()*0.7));
+				run.addPicture(is, XWPFDocument.PICTURE_TYPE_PNG, imagePath, Units.toEMU(img.getWidth() * 0.7),
+						Units.toEMU(img.getHeight() * 0.7));
 			} catch (InvalidFormatException | IOException e) {
 				// TODO Auto-generated catch block
-				//e.printStackTrace();
+				// e.printStackTrace();
 			}
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
@@ -355,9 +357,10 @@ public class DOCXcreator {
 
 	private void save() {
 		try {
-			doc.write(new FileOutputStream(new File("C:\\Users\\wypik\\Desktop\\invoices\\DOCX\\"+client.getClientName() + ".docx")));
+			doc.write(new FileOutputStream(
+					new File("C:\\Users\\wypik\\Desktop\\invoices\\DOCX\\" + client.getClientName() + ".docx")));
 			doc.close();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

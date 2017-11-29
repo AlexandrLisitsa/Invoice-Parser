@@ -91,6 +91,13 @@ public class XMLparser {
 					if (locList.item(tmpList).getNodeName().equals("requisitesImage")) {
 						clients.get(clients.size() - 1).setRequisiteImgPath(locList.item(tmpList).getTextContent());
 					}
+					if (locList.item(tmpList).getNodeName().equals("isAct")) {
+						if(locList.item(tmpList).getTextContent().equals("false")) {
+							clients.get(clients.size()-1).setAct(false);
+						}else {
+							clients.get(clients.size()-1).setAct(true);
+						}
+					}
 				}
 			}
 		}

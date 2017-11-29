@@ -22,8 +22,9 @@
 	<Client name="Восход">
 		<location>z:\Счета\01_Априори\Восход\</location>
 		<upperActTitle>Акт выполненных работ № 01-2</upperActTitle>
-		<lowerActTitle>Выдан ФЛП  Полевой В.А. </lowerActTitle>
+		<lowerActTitle>Выдан ФЛП  Полевой В.А. (Восход) </lowerActTitle>
 		<requisitesImage>res/requisiteIMG/Восход.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -36,6 +37,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Париж.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -48,6 +50,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Сливки.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -60,6 +63,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Утка.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -72,6 +76,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Априори.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -84,6 +89,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/АТЛ.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -96,6 +102,7 @@
 		</services>
 		<discount>50</discount>
 		<requisitesImage>res/requisiteIMG/Поехали.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -111,6 +118,7 @@
 		</services>
 		<discount>50</discount>
 		<requisitesImage>res/requisiteIMG/Протеже.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -123,6 +131,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Экстрапластик.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -135,6 +144,7 @@
 		</services>
 		<discount>40</discount>
 		<requisitesImage>res/requisiteIMG/Техноэкос.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -148,6 +158,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Швейка.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -161,13 +172,14 @@
 		</services>
 		<discount>43</discount>
 		<requisitesImage>res/requisiteIMG/Хотгриль.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
 	<Client name="Оптидея">
 		<location>z:\Счета\25_Оптидея+\</location>
 		<upperActTitle>Акт выполненных работ № 25</upperActTitle>
-		<lowerActTitle>Выдан ООО «Оптидея Плюс» за </lowerActTitle>
+		<lowerActTitle>Выдан ООО «Оптидея Плюс» </lowerActTitle>
 		<services>
 			<service description="Обслуживание рабочих станций" count="10" cost="400" />
 		 	<server description="Оплата Сервер + второй IP 56,49 евро по курсу 31,26" count="1" cost="1854.17" />
@@ -175,6 +187,7 @@
 		</services>
 		<discount>40</discount>
 		<requisitesImage>res/requisiteIMG/Оптидея.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -188,6 +201,7 @@
 		</services>
 		<discount>33</discount>
 		<requisitesImage>res/requisiteIMG/Ангелдент.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -201,6 +215,7 @@
 		</services>
 		<discount>33</discount>
 		<requisitesImage>res/requisiteIMG/Джайпур.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -216,6 +231,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Вебтранс.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -229,6 +245,7 @@
 		</services>
 		<discount>33</discount>
 		<requisitesImage>res/requisiteIMG/Гринвич.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -242,6 +259,7 @@
 		</services>
 		<discount>33</discount>
 		<requisitesImage>res/requisiteIMG/Колетт.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -255,6 +273,7 @@
 		</services>
 		<discount>45</discount>
 		<requisitesImage>res/requisiteIMG/Велики.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -268,6 +287,7 @@
 		</services>
 		<discount>33</discount>
 		<requisitesImage>res/requisiteIMG/Арколон.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -281,6 +301,7 @@
 		</services>
 		<discount>54</discount>
 		<requisitesImage>res/requisiteIMG/Чарли.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -293,6 +314,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Левел.png</requisitesImage>
+		<isAct>false</isAct>
 	</Client>
 	
 	
@@ -306,6 +328,7 @@
 		</services>
 		<discount>33</discount>
 		<requisitesImage>res/requisiteIMG/Эдбург.png</requisitesImage>
+		<isAct>false</isAct>
 	</Client>
 	
 	
@@ -319,6 +342,7 @@
 		</services>
 		<discount>15</discount>
 		<requisitesImage>res/requisiteIMG/Мыши.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -332,6 +356,7 @@
 		</services>
 		<discount>46</discount>
 		<requisitesImage>res/requisiteIMG/Либра.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -342,10 +367,11 @@
 		<services>
 			<service description="Обслуживание рабочих станций" count="9" cost="400" />
 		 	<server description="Оплата серверов в ДЦ" count="1" cost="1854.17" /> <!-- 79,9*26,95*1,05 -->
-			<service description="Обслуживание серверов" count="2" cost="600" />
+			<service description="Обслуживание серверной инфраструктуры" count="1" cost="600" />
 		</services>
 		<discount>26</discount>
 		<requisitesImage>res/requisiteIMG/Электроснаб.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -360,6 +386,7 @@
 		</services>
 		<discount>10</discount>
 		<requisitesImage>res/requisiteIMG/Мегаавто.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -373,6 +400,7 @@
 		</services>
 		<discount>50</discount>
 		<requisitesImage>res/requisiteIMG/Сафари.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -386,6 +414,7 @@
 		</services>
 		<discount>33</discount>
 		<requisitesImage>res/requisiteIMG/Итис.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -399,6 +428,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Мобиндастри.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -407,10 +437,11 @@
 		<upperActTitle>Акт выполненных работ № 52</upperActTitle>
 		<lowerActTitle>Выдан «Flowers» </lowerActTitle>
 		<services>
-			<service description="Обслуживание рабочих станций" count="4" cost="400" />
+			<service description="Обслуживание рабочих станций" count="12" cost="400" />
 		</services>
 		<discount>50</discount>
 		<requisitesImage>res/requisiteIMG/Флаверс.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -429,9 +460,10 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Импера.png</requisitesImage>
+		<isAct>false</isAct>
 	</Client>
 	
-	
+	<!-- 
 	<Client name="Троя">
 		<location>z:\Счета\54_Троя\</location>
 		<upperActTitle>Акт виконаних робіт № 54</upperActTitle>
@@ -443,8 +475,10 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Троя.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
+	-->
 	
 	<Client name="ДРС">
 		<location>z:\Счета\55_Drs\</location>
@@ -455,6 +489,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/ДРС.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -468,6 +503,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Аквапарк.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -481,6 +517,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Селена.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -496,6 +533,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Микра.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -508,6 +546,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Майсток.png</requisitesImage>
+		<isAct>false</isAct>
 	</Client>
 	
 	
@@ -521,6 +560,7 @@
 		</services>
 		<discount>28</discount>
 		<requisitesImage>res/requisiteIMG/Делфиш.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -533,6 +573,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/КЭН.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -545,6 +586,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Бананы.png</requisitesImage>
+		<isAct>false</isAct>
 	</Client>
 	
 	
@@ -557,6 +599,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Акма.png</requisitesImage>
+		<isAct>false</isAct>
 	</Client>
 	
 	
@@ -570,6 +613,7 @@
 		</services>
 		<discount>50</discount>
 		<requisitesImage>res/requisiteIMG/Диекс.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -582,6 +626,7 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Алкомаркет.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -595,6 +640,7 @@
 		</services>
 		<discount>20</discount>
 		<requisitesImage>res/requisiteIMG/Барон.png</requisitesImage>
+		<isAct>true</isAct>
 	</Client>
 	
 	
@@ -607,6 +653,19 @@
 		</services>
 		<discount>0</discount>
 		<requisitesImage>res/requisiteIMG/Камелот.png</requisitesImage>
+		<isAct>false</isAct>
+	</Client>
+	
+	<Client name="Европа">
+		<location>z:\Счета\71_Европа\</location>
+		<upperActTitle>Счет № 71</upperActTitle>
+		<lowerActTitle>Выдан Европа+ </lowerActTitle>
+		<services>
+		
+		</services>
+		<discount>0</discount>
+		<requisitesImage>res/requisiteIMG/Европа.png</requisitesImage>
+		<isAct>false</isAct>
 	</Client>
 	
 	
