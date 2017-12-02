@@ -88,8 +88,15 @@ public class XMLparser {
 					if (locList.item(tmpList).getNodeName().equals("services")) {
 						addServices(locList, tmpList, clients);
 					}
-					if (locList.item(tmpList).getNodeName().equals("requisitesImage")) {
-						clients.get(clients.size() - 1).setRequisiteImgPath(locList.item(tmpList).getTextContent());
+					if (locList.item(tmpList).getNodeName().equals("requisite")) {
+						if(locList.item(tmpList).hasChildNodes()) {
+							NodeList reqList = locList.item(tmpList).getChildNodes();
+							for (int j = 0; j < reqList.getLength(); j++) {
+								if(!reqList.item(j).getNodeName().equals("#text")) {
+									clients.get(clients.size() - 1).getRequisites().add(reqList.item(j).getTextContent());
+								}
+							}
+						}
 					}
 					if (locList.item(tmpList).getNodeName().equals("isAct")) {
 						if(locList.item(tmpList).getTextContent().equals("false")) {
@@ -118,7 +125,7 @@ public class XMLparser {
 						c.getServices().get(c.getServices().size()-1).setCount(Double.parseDouble(attArr.item(att).getNodeValue()));
 					}
 					if(attArr.item(att).getNodeName().equals("cost")) {
-						c.getServices().get(c.getServices().size()-1).setPrice(Double.parseDouble(attArr.item(att).getNodeValue()));
+						c.getServices().get(c.getServices().size()-1).setPrice(Server.mathExpressionToDouble(attArr.item(att).getNodeValue()));
 					}
 				}
 			}
@@ -134,7 +141,7 @@ public class XMLparser {
 						c.getServers().get(c.getServers().size()-1).setCount(Double.parseDouble(attArr.item(att).getNodeValue()));
 					}
 					if(attArr.item(att).getNodeName().equals("cost")) {
-						c.getServers().get(c.getServers().size()-1).setPrice(Double.parseDouble(attArr.item(att).getNodeValue()));
+						c.getServers().get(c.getServers().size()-1).setPrice(Server.mathExpressionToDouble(attArr.item(att).getNodeValue()));
 					}
 				}
 			}

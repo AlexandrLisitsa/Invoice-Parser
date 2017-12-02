@@ -12,11 +12,14 @@ public class Client {
 	private ArrayList<Service> services = new ArrayList<Service>();
 	private ArrayList<Server> servers = new ArrayList<Server>();
 	private ArrayList<Addition> additions = new ArrayList<Addition>();
-	private String location,clientName,upperActTitle,lowerActTitle,requisiteImgPath;
+	private String location,clientName,upperActTitle,lowerActTitle;
 	private double accrued;
 	private double payd;
 	private double discount;
 	private boolean isAct;
+	//реквизиты
+	private ArrayList<String> requisites = new ArrayList<String>();
+	
 	
 	public double getTotalAdditionsCost() {
 		double x=0;
@@ -158,20 +161,20 @@ public class Client {
 		this.additions = additions;
 	}
 
-	public String getRequisiteImgPath() {
-		return requisiteImgPath;
-	}
-
-	public void setRequisiteImgPath(String requisiteImgPath) {
-		this.requisiteImgPath = requisiteImgPath;
-	}
-
 	public boolean isAct() {
 		return isAct;
 	}
 
 	public void setAct(boolean isAct) {
 		this.isAct = isAct;
+	}
+
+	public ArrayList<String> getRequisites() {
+		return requisites;
+	}
+
+	public void setRequisites(ArrayList<String> requisites) {
+		this.requisites = requisites;
 	}
 
 }

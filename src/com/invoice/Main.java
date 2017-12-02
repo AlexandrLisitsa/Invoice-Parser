@@ -43,7 +43,6 @@ public class Main {
 	private void createDOCXInvoices() {
 		progress.removeExtendedBar();
 		for(int i=0;i<clients.size();i++) {
-			System.out.println(clients.get(i).getRequisiteImgPath());
 			docCreator.createInvoice(clients.get(i));	
 			progress.updateBar(clients.size(),i+1, "Create Invoice: "+clients.get(i).getClientName(), true);
 		}

@@ -1,18 +1,15 @@
 package com.invoice.creator;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
-import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.util.Units;
@@ -22,6 +19,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTblPr;
 
 import com.invoice.client.Addition;
 import com.invoice.client.Client;
@@ -41,7 +39,7 @@ public class DOCXcreator {
 	private FileInputStream is;
 	private Calendar calendar = Calendar.getInstance();
 	private Client client;
-	private XWPFTable table;
+	private XWPFTable table,requisiteTable;
 
 	public void createInvoice(Client client) {
 		this.client = client;
@@ -181,14 +179,13 @@ public class DOCXcreator {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	private void createTableDebt() {
 		List<XWPFParagraph> parList;
 		table = doc.createTable(3, 5);
 
-		int prevMonth = getPrevMonth() - 1;
-		int currMonth = calendar.getTime().getMonth() - 1;
-		int nextMonth = getNextMonth() - 1;
+		int prevMonth = getPrevMonth();
+		int currMonth = getCurrentMonth();
+		int nextMonth = getNextMonth();
 
 		for (int row = 0; row < table.getNumberOfRows(); row++) {
 			for (int col = 0; col < 5; col++) {
@@ -239,22 +236,27 @@ public class DOCXcreator {
 		doc.createParagraph();
 	}
 
-	@SuppressWarnings("deprecation")
 	private int getPrevMonth() {
-		if (calendar.getTime().getMonth() == 0) {
+		if (calendar.get(Calendar.MONTH)==0) {
+			return 10;
+		}else if(calendar.get(Calendar.MONTH)==1) {
 			return 11;
-		} else {
-			return calendar.getTime().getMonth() - 1;
+		}
+		else {
+			return calendar.get(Calendar.MONTH) - 2;
+		}
+	}
+	
+	private int getCurrentMonth() {
+		if(calendar.get(Calendar.MONTH)==0) {
+			return 11;
+		}else {
+			return calendar.get(Calendar.MONTH)-1;
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	private int getNextMonth() {
-		if (calendar.getTime().getMonth() == 11) {
-			return 0;
-		} else {
-			return calendar.getTime().getMonth() + 1;
-		}
+		return calendar.get(Calendar.MONTH);
 	}
 
 	@SuppressWarnings("deprecation")
@@ -295,6 +297,8 @@ public class DOCXcreator {
 		}
 	}
 
+	
+	/*
 	private void createActRequisite() {
 		paragraph = doc.createParagraph();
 		run = paragraph.createRun();
@@ -327,6 +331,63 @@ public class DOCXcreator {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	*/
+	
+	private void createActRequisite() {
+		doc.createParagraph();
+		//создаем таблицу реквизитов
+		requisiteTable=doc.createTable(1, 2);
+		requisiteTable.getCTTbl().setTblPr(getExampleCTTblPr());
+		//заполняем реквизиты клиенты
+		requisiteTable.getRow(0).getCell(0).removeParagraph(0);
+		for (String x : client.getRequisites()) {
+			if(x.indexOf(0)!=' ') {
+			requisiteTable.getRow(0).getCell(0).addParagraph().createRun().setText(x);
+			}
+		}
+		setTableFontSize(requisiteTable, 1, 2, 10);
+	}
+	
+	private void setTableFontSize(XWPFTable table,int row,int col,int fontSize) {
+		for (int rows = 0; rows < row; rows++) {
+			for (int cols = 0; cols < col; cols++) {
+				List<XWPFParagraph> tPar=table.getRow(rows).getCell(cols).getParagraphs();
+				for (XWPFParagraph x : tPar) {
+					x.setSpacingAfter(0);
+					x.setSpacingAfterLines(0);
+					x.setSpacingBefore(0);
+					x.setSpacingBeforeLines(0);
+					x.setSpacingBetween(0.9);
+					List<XWPFRun> tRun=x.getRuns();
+					for (XWPFRun runs : tRun) {
+						runs.setFontFamily("times new roman");
+						runs.setFontSize(fontSize);
+					}
+				}
+			}
+		}
+	}
+	
+	//метод для подгрузки стиля таблицы
+	private CTTblPr getExampleCTTblPr() {
+		InputStream is = null;
+		try {
+			is = new FileInputStream(new File("res/requisiteExample.docx"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		XWPFDocument tdoc = null;
+		try {
+			tdoc = new XWPFDocument(is);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		return tdoc.getTableArray(0).getCTTbl().getTblPr();
 	}
 
 	private void createActHead() {

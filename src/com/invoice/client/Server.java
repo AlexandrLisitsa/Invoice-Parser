@@ -8,6 +8,24 @@ public class Server {
 	public double getPrice() {
 		return price;
 	}
+	
+	public static double mathExpressionToDouble(String expression) {
+
+		double tmp = 1;
+		if (!expression.contains("*")) {
+			return tmp * Double.parseDouble(expression);
+		} else {
+			while (expression != null) {
+				tmp = tmp * Double.parseDouble(expression.substring(0, expression.indexOf('*')));
+				expression = expression.substring(expression.indexOf('*') + 1);
+				if (!expression.contains("*")) {
+					return tmp * Double.parseDouble(expression.substring(0, expression.length()));
+				}
+			}
+			return tmp;
+		}
+	}
+	
 	public void setPrice(double price) {
 		this.price = price;
 	}

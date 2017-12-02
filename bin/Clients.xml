@@ -1,30 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- EXAMPLE
-
-<Client name="Оптидея">
-		<location>z:\Счета\25_Оптидея+\</location> -расположене на диске
-		<upperActTitle>Счет №25</upperActTitle> -верхняя часть акта
-		<lowerActTitle>Выдан ООО «Оптидея Плюс» за </lowerActTitle> - нижняя часть акта
-		<services> -список ежемесячных услуг
-			<service description="Обслуживание рабочих станций" count="10" cost="400" />
-		 	<server description="Оплата Сервер + второй IP 56,49 евро по курсу 31,26" count="1" cost="1854.17" />
-			<service description="Обслуживание серверов" count="2" cost="600" />
-		</services>
-		<discount>0</discount> - скидка
-		<requisitesImage>res/requisiteIMG/Восход.png</requisitesImage> - ссылка на картинку с реквизитами
-	</Client>
-
- -->
-
 <Clients>
 
 	<Client name="Восход">
 		<location>z:\Счета\01_Априори\Восход\</location>
 		<upperActTitle>Акт выполненных работ № 01-2</upperActTitle>
 		<lowerActTitle>Выдан ФЛП  Полевой В.А. (Восход) </lowerActTitle>
-		<requisitesImage>res/requisiteIMG/Восход.png</requisitesImage>
 		<isAct>true</isAct>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 	</Client>
 	
 	
@@ -35,8 +20,10 @@
 		<services>
 			<service description="IT поддержка" count="1" cost="1500" />
 		</services>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Париж.png</requisitesImage>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -48,8 +35,10 @@
 		<services>
 			<service description="IT поддержка" count="1" cost="500" />	
 		</services>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Сливки.png</requisitesImage>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -61,8 +50,10 @@
 		<services>
 			<service description="IT поддержка" count="1" cost="500" />	
 		</services>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Утка.png</requisitesImage>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -74,8 +65,10 @@
 		<services>
 			<service description="IT поддержка" count="1" cost="500" />	
 		</services>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Априори.png</requisitesImage>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -87,8 +80,10 @@
 		<services>
 			<service description="Удаленная поддержка пользователей" count="1" cost="400" />
 		</services>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/АТЛ.png</requisitesImage>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -100,8 +95,15 @@
 		<services>
 			<service description="Обслуживание рабочих станций" count="2" cost="400" />
 		</services>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФЛП Мусик А.М,</fop>
+			<edr>ЕДРПОУ 3063015485</edr>
+			<address>Адрес: 49000 г. Днепропетровск,  ул  Писаржевского 1а оф 520</address>
+			<bank>р/с 26001050204267 КБ Приватбанк</bank>
+			<mfo>МФО 305399</mfo>
+		</requisite>
 		<discount>50</discount>
-		<requisitesImage>res/requisiteIMG/Поехали.png</requisitesImage>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -114,10 +116,18 @@
 			<service description="Обслуживание рабочих станций" count="9" cost="400" />
 		 	<service description="Сопровождение видеонаблюдения" count="1" cost="100" />
 		 	<service description="Обслуживание серверов" count="4" cost="600" />
-		 	<server description="Аренда сервера в ДЦ „Хецнер“ по курсу 31,26" count="1" cost="1854.17" />
+		 	<server description="Аренда сервера в ДЦ „Хецнер“ по курсу 31,26" count="1" cost="54.9*1.029*1.05*31.26" /> <!-- 54,9*1,029*1,05*31,26 -->
 		</services>
 		<discount>50</discount>
-		<requisitesImage>res/requisiteIMG/Протеже.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФЛП Маргаритова Светлана Леонидовна</fop>
+			<edr>ЕДРПОУ 1993822327</edr>
+			<address>г. Днепропетровск, ул. Фучика 11/33</address>
+			<bank>р/с 26002090000118</bank>
+			<bank>ДФ АКБ «Индустриалбанк» </bank>
+			<mfo>МФО 307189</mfo>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -130,7 +140,14 @@
 			<service description="Остаток по обслуживанию оргтехники за вычетом 800 грн безнала" count="1" cost="2400" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Экстрапластик.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<OOO>ООО с ИИ «Экстра Пластик»</OOO>
+			<INN>ИНН 246035704658. ОКПО 2463571</INN>
+			<address>Адрес: 49081 г. Днепропетровск ул. Артельная 9-б</address>
+			<bank>р/с 26005116474001 в КБ Приватбанк,</bank>
+			<mfo>МФО 305299</mfo>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -143,7 +160,15 @@
 			<service description="Обслуживание рабочих станций" count="9" cost="400" />
 		</services>
 		<discount>40</discount>
-		<requisitesImage>res/requisiteIMG/Техноэкос.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ПП НВЦ Техноекос</fop>
+			<edr>ЕДРПОУ 31385378 ИНН 31385304866</edr>
+			<address>Адрес: 49000 г.Днепропетровск ул. Комсомольская 52 оф 470</address>
+			<bank>р/с 26005381949000 в АО  "Банк “УкрСиббанк" г. </bank>
+			<bank>Днепропетровск</bank>
+			<mfo>МФО 351005</mfo>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -157,7 +182,12 @@
 			<service description="Обслуживание серверов" count="3" cost="166.60" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Швейка.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФЛП Левина Т.М.</fop>
+			<edr>ЕДРПОУ  2716813066</edr>
+			<address>Адрес: 49000 г. Днепропетровск, ул.Лабораторная 46/3</address>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -171,7 +201,15 @@
 			<service description="Обслуживание серверов" count="2" cost="600" />
 		</services>
 		<discount>43</discount>
-		<requisitesImage>res/requisiteIMG/Хотгриль.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФОП Жадан Наталія Володимирівна</fop>
+			<edr>ЄДРПОУ 3023217082</edr>
+			<address>Адреса: 52005, Днепропетровская обл., Днепропетровский р-н, </address>
+			<address>ПГТ Юбилейный, ул Совхозная д.69 кв 43</address>
+			<bank>р/р 26006001311574  в ПАТ Актабанк,</bank>
+			<mfo>МФО 307394</mfo>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -182,11 +220,17 @@
 		<lowerActTitle>Выдан ООО «Оптидея Плюс» </lowerActTitle>
 		<services>
 			<service description="Обслуживание рабочих станций" count="10" cost="400" />
-		 	<server description="Оплата Сервер + второй IP 56,49 евро по курсу 31,26" count="1" cost="1854.17" />
+		 	<server description="Оплата Сервер + второй IP 56,49 евро по курсу 31,26" count="1" cost="56.49*31.26*1.05" /> <!-- 56,49*31,26*1,05 -->
 			<service description="Обслуживание серверов" count="2" cost="600" />
 		</services>
 		<discount>40</discount>
-		<requisitesImage>res/requisiteIMG/Оптидея.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ТОВ «Оптідея  плюс»</fop>
+			<edr>ЕГРПОУ 38676627</edr>
+			<address>Адрес: 49054,м..Дніпропетровськ,</address>
+			<address>Пр. Кірова буд 62 прим 22</address>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -200,7 +244,12 @@
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
 		<discount>33</discount>
-		<requisitesImage>res/requisiteIMG/Ангелдент.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФЛП Невинчаный И.Е.</fop>
+			<edr>ЕДРПОУ 2269600252</edr>
+			<address>Адрес: 49000 Днепропетровск, пер.Шевченко 4, оф  67-а</address>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -214,7 +263,15 @@
 			<service description="Обслуживание физических серверов" count="2" cost="600" />
 		</services>
 		<discount>33</discount>
-		<requisitesImage>res/requisiteIMG/Джайпур.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФОП Ковальчук Г.В.</fop>
+			<edr>ЕДРПОУ 3117514029</edr>
+			<address>Адрес: Індекс 52514, Дніпровська абл. Синельниківский район, </address>
+			<address>село Зайцево,вул Комсомольска 8</address>
+			<bank>Р/с 26002050269795 в  ПАТ КБ "ПРИВАТБАНК" Днiпро</bank>
+			<mfo>МФО  305299</mfo>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -225,12 +282,20 @@
 		<lowerActTitle>Выдан ООО «Вебтранс-Логистик Плюс» </lowerActTitle>
 		<services>
 			<service description="Обслуживание рабочих станций" count="27" cost="100" />
-		 	<server description="Оплата серверов 133,56 евро по курсу 31,26" count="1" cost="1854.17" /> <!-- =133,56*31,26*1,05 -->
-		 	<server description="Оплата доп. IP адресов 10,29 евро по курсу 31,26" count="1" cost="337.75" /> <!-- =10,29*31,26*1,05 -->		
+		 	<server description="Оплата серверов 133,56 евро по курсу 31,26" count="1" cost="133.56*31.26*1.05" /> <!-- =133,56*31,26*1,05 -->
+		 	<server description="Оплата доп. IP адресов 10,29 евро по курсу 31,26" count="1" cost="10.29*31.26*1.05" /> <!-- =10,29*31,26*1,05 -->		
 			<service description="Обслуживание серверов" count="7" cost="200" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Вебтранс.png</requisitesImage>
+		<requisite>
+			<customer>Замовник:</customer>
+			<fop>Товариство з обмеженою відповідальністю «ВЕБТРАНС-ЛОГІСТИК ПЛЮС»</fop>
+			<address>49000 м.Дніпро вул..Старокозацька,буд.40-Б</address>
+			<bank>р/р 26005534557  в АТ «Райффайзен Банк АВАЛЬ»</bank>
+			<mfo>МФО 380805  ЄДРПОУ 40681217</mfo>
+			<INN>ІПН  406812104622</INN>
+			<dir>Директор Мещеряков  Віктор Володимирович</dir>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -243,8 +308,10 @@
 			<service description="Обслуживание рабочих станций" count="2" cost="400" />
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<discount>33</discount>
-		<requisitesImage>res/requisiteIMG/Гринвич.png</requisitesImage>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -258,7 +325,14 @@
 			<service description="Обслуживание серверов" count="2" cost="600" />
 		</services>
 		<discount>33</discount>
-		<requisitesImage>res/requisiteIMG/Колетт.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФЛП Гребенюк Р.И,</fop>
+			<edr>ЕДРПОУ  3389714061</edr>
+			<address>Адрес: 49000 г. Днепропетровск, ул. Почтовая д.18-20, кв.2</address>
+			<bank>р/с 26008399766 в АТ «Райффайзен Банк Аваль» г.Киев </bank>
+			<mfo>МФО 380805</mfo>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -272,7 +346,15 @@
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
 		<discount>45</discount>
-		<requisitesImage>res/requisiteIMG/Велики.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФОП Митянин Игорь Валерьевич</fop>
+			<edr>ЕДРПОУ 2519400456</edr>
+			<address>Адрес: ул..Г.Сталинграда,156-а</address>
+			<bank>р/с  26000050804505 в КБ "Приватбанк"</bank>
+			<bank>Дніпропетровська</bank>
+			<mfo>МФО 305299</mfo>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -286,7 +368,15 @@
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
 		<discount>33</discount>
-		<requisitesImage>res/requisiteIMG/Арколон.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ЧП «Арколон-5»</fop>
+			<edr>ЕГРПОУ 34915317</edr>
+			<bank>р\с №26007258734 в «РайффазенБанкАваль» г. Киев,</bank>
+			<mfo>МФО 380805</mfo>
+			<certificate>Св-во №100068910</certificate>
+			<INN>ИНН 349153104638</INN>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -300,7 +390,9 @@
 			<service description="Обслуживание серверов" count="2" cost="600" />
 		</services>
 		<discount>54</discount>
-		<requisitesImage>res/requisiteIMG/Чарли.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -312,8 +404,10 @@
 		<services>
 			<service description="Деятельность по управления компьютерным оборудованием" count="1" cost="7000" />
 		</services>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Левел.png</requisitesImage>
 		<isAct>false</isAct>
 	</Client>
 	
@@ -327,7 +421,14 @@
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
 		<discount>33</discount>
-		<requisitesImage>res/requisiteIMG/Эдбург.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФЛП Шнейдер Н.Н.</fop>
+			<edr>ЕГРПОУ 2717600169</edr>
+			<address>Адрес: 49000 г Днепропетровск, ул. Байкальская 20</address>
+			<bank>р\р 26001050241770 в КБ Приватбанк</bank>
+			<mfo>МФО 305299</mfo>
+		</requisite>
 		<isAct>false</isAct>
 	</Client>
 	
@@ -341,7 +442,12 @@
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
 		<discount>15</discount>
-		<requisitesImage>res/requisiteIMG/Мыши.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФЛП Буряк О.О</fop>
+			<edr>ЕГРПОУ 2983703768</edr>
+			<address>Адрес: 49000 г Днепропетровск, ул. Байкальская 84/110</address>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -355,7 +461,16 @@
 			<service description="Обслуживание серверов" count="3" cost="600" />
 		</services>
 		<discount>46</discount>
-		<requisitesImage>res/requisiteIMG/Либра.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ООО Либра Зет</fop>
+			<edr>ЕГРПОУ 34148492</edr>
+			<address>Адрес: 51100, Днепропетровская, обл, Магдалиновский р-н, </address>
+			<address>пгт. Магдалиновка, ул Советская, д 125</address>
+			<bank>р/с 26007050203585 в  ПАТ КБ "ПРИВАТБАНК" </bank>
+			<bank>Днiпропетровськ. </bank>
+			<mfo>МФО 305299</mfo>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -366,11 +481,19 @@
 		<lowerActTitle>Выдан ТОВ «Електропостачзбут» </lowerActTitle>
 		<services>
 			<service description="Обслуживание рабочих станций" count="9" cost="400" />
-		 	<server description="Оплата серверов в ДЦ" count="1" cost="1854.17" /> <!-- 79,9*26,95*1,05 -->
+		 	<server description="Оплата серверов в ДЦ" count="1" cost="79.9*26.95*1.05" /> <!-- 79,9*26,95*1,05 -->
 			<service description="Обслуживание серверной инфраструктуры" count="1" cost="600" />
 		</services>
 		<discount>26</discount>
-		<requisitesImage>res/requisiteIMG/Электроснаб.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ТОВ «Електропостачзбут» </fop>
+			<edr>ЕГРПОУ 21942373</edr>
+			<address>Адрес: 49102, г Днепропетровск, ул Буденного, 8\65 </address>
+			<bank>р/с 26006108210001 в  ПАТ КБ "ПРИВАТБАНК" </bank>
+			<bank>Днiпропетровськ. </bank>
+			<mfo>МФО 305299</mfo>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -381,11 +504,19 @@
 		<lowerActTitle>Выдан ТОВ «Мегаавтоинвест» </lowerActTitle>
 		<services>
 			<service description="Обслуживание рабочих станций" count="3" cost="400" />
-		 	<server description="Оплата серверов в ДЦ курс евро 31,26" count="1" cost="1854.17" /> <!-- 54,9*1,029*1,05*31,26 -->
+		 	<server description="Оплата серверов в ДЦ курс евро 31,26" count="1" cost="54.9*1.029*1.05*31.26" /> <!-- 54,9*1,029*1,05*31,26 -->
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
 		<discount>10</discount>
-		<requisitesImage>res/requisiteIMG/Мегаавто.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>Физическое лицо Короткова Тамара Николаевна Паспорт серии АЕ 360850,</fop>
+			<recieve>Выдан  Бабушкинским  РВ ДМУ УМВС Украины</recieve>
+			<recieve>В Днепропетровской области  05 августа 1996 года,</recieve>
+			<INN>Идентификационный номер: 1870103761,</INN>
+			<address>Адрес прописки: г. Днепропетровск ,пр. Кирова,</address>
+			<address>Дом 20, квартира 52</address>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -399,7 +530,15 @@
 			<service description="Обслуживание серверов (Гипервизор в офисе 2 вирт. сервера. Гипервизор в хецнер 4 вирт сервера)" count="2" cost="500" />
 		</services>
 		<discount>50</discount>
-		<requisitesImage>res/requisiteIMG/Сафари.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФОП Панаскіна Олександра Миколаївна</fop>
+			<edr>ЄДРПОУ 2765120601</edr>
+			<address>Вул. Щепкіна , 39 ,кв. 52</address>
+			<bank>р/с 26008001015954 в ПАТ КБ «ПРЕМІУМ»</bank>
+			<bank>м. Дніпропетровськ.</bank>
+			<bank>339555</bank>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -413,7 +552,15 @@
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
 		<discount>33</discount>
-		<requisitesImage>res/requisiteIMG/Итис.png</requisitesImage>
+		<requisite>
+			<customer>Замовник:</customer>
+			<fop>ФЛП Савенко Алена Владимировна</fop>
+			<address>г. Днепропетровск,</address>
+			<address>ул. 22-го Партсъезда д.50, кв.59</address>
+			<reg>гос рег. №22240000000091370</reg>
+			<INN>ИНН  2818603368</INN>
+			<phone>Тел. (056) 371 06 61, (056) 371 06 46</phone>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -423,11 +570,13 @@
 		<upperActTitle>Акт выполненных работ № 51</upperActTitle>
 		<lowerActTitle>Выдан ТОВ «Мобиндастри» </lowerActTitle>
 		<services>
-		 	<server description="Оплата серверов в ДЦ  56,50 курс евро 31,26" count="1" cost="1854.17" /> <!-- 54,9*1,029*1,05*31,26 -->
-			<service description="Обслуживание серверов ($20 по 26,9)" count="1" cost="600" /> <!-- 20*26,9 -->
+		 	<server description="Оплата серверов в ДЦ  56,50 курс евро 31,26" count="1" cost="54.9*1.029*1.05*31.26" /> <!-- 54,9*1,029*1,05*31,26 -->
+			<service description="Обслуживание серверов ($20 по 26,9)" count="1" cost="20*26.9" /> <!-- 20*26,9 -->
 		</services>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Мобиндастри.png</requisitesImage>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -439,8 +588,10 @@
 		<services>
 			<service description="Обслуживание рабочих станций" count="12" cost="400" />
 		</services>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<discount>50</discount>
-		<requisitesImage>res/requisiteIMG/Флаверс.png</requisitesImage>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -450,16 +601,18 @@
 		<upperActTitle>Счет № 53</upperActTitle>
 		<lowerActTitle>Выдан ООО «Импера Групп» </lowerActTitle>
 		<services>
-			<server description="Аренда серверов Server #1 , курс 31,26" count="1" cost="1854.17" /> <!-- (57,98+0,84)*1,05*31,26 -->
-			<server description="Аренда серверов Server #2 , курс 31,26" count="1" cost="1854.17" /> <!-- 54,9*1,05*31,26 -->
-			<server description="Аренда серверов Server #4 , курс 31,26" count="1" cost="1854.17" /> <!-- (39+0,84)*1,05*31,26 -->
-			<server description="Аренда серверов Server #5 , курс 31,26" count="1" cost="1854.17" /> <!-- (39+0,84)*1,05*31,26 -->
-			<server description="Аренда серверов Server #6 , курс 31,26" count="1" cost="1854.17" /> <!-- (39+0,84)*1,05*31,26 -->
-			<server description="Аренда серверов Server #7 , курс 31,26" count="1" cost="1854.17" /> <!-- (39+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #1 , курс 31,26" count="1" cost="58.82*1.05*31.26" /> <!-- (57,98+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #2 , курс 31,26" count="1" cost="54.9*1.05*31.26" /> <!-- 54,9*1,05*31,26 -->
+			<server description="Аренда серверов Server #4 , курс 31,26" count="1" cost="39.84*1.05*31.26" /> <!-- (39+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #5 , курс 31,26" count="1" cost="39.84*1.05*31.26" /> <!-- (39+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #6 , курс 31,26" count="1" cost="39.84*1.05*31.26" /> <!-- (39+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #7 , курс 31,26" count="1" cost="39.84*1.05*31.26" /> <!-- (39+0,84)*1,05*31,26 -->
 			<service description="Деятельность по управлению компьютерным оборудованием" count="1" cost="4500" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Импера.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<isAct>false</isAct>
 	</Client>
 	
@@ -488,7 +641,9 @@
 			<service description="Обслуживание серверов" count="1" cost="400" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/ДРС.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -502,7 +657,9 @@
 		 	<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Аквапарк.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -515,8 +672,15 @@
 			<service description="Обслуживание рабочих станций" count="8" cost="250" />
 			<service description="Обслуживание серверов" count="1" cost="300" />
 		</services>
+		<requisite>
+			<customer>Замовник:</customer>
+			<fop>ФОП - Волков Георгій Олексійович</fop>
+			<edr>ЄДРПОУ - 318852061</edr>
+			<address>Адреса - вул. Ю. Савченка, буд. 6а, кв. 33а</address>
+			<bank>Расчетн. счёт - 26006050009036</bank>
+			<mfo>МФО - 305299</mfo>
+		</requisite>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Селена.png</requisitesImage>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -527,12 +691,21 @@
 		<lowerActTitle>Выдан ФОП УСЕНКО ВІКТОРІЯ ВІКТОРІВНА </lowerActTitle>
 		<services>
 			<service description="Обслуговування робочих станцій" count="2" cost="250" />
-		 	<server description="Оренда сервера  40 євро за курсом 31,26" count="1" cost="1854.17" /> <!-- 40*31,26 -->
+		 	<server description="Оренда сервера  40 євро за курсом 31,26" count="1" cost="40*31.26" /> <!-- 40*31,26 -->
 			<service description="Обслуговування серверів" count="1" cost="300" />
 			<service description="Супровід ПО 1С" count="1" cost="1000" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Микра.png</requisitesImage>
+		<requisite>
+			<customer>Замовник:</customer>
+			<fop>ФОП УСЕНКО ВІКТОРІЯ ВІКТОРІВНА</fop>
+			<INN>ІПН ‎3170113172</INN>
+			<address>39262, ПОЛТАВСТКА ОБЛ, КОЬЕЛЯЦЬКИЙ РАЙОН, </address>
+			<address>СЕЛО СВІТООГІРСЬКЕ, ВУЛ.ГАГАРІНА, БУД.26</address>
+			<phone>ТЕЛ ‎056 736 15 63</phone>
+			<space> </space>
+			<dir>Директор Усенко В.В.</dir>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -545,7 +718,9 @@
 			<service description="Оплата хостинга" count="1" cost="277" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Майсток.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<isAct>false</isAct>
 	</Client>
 	
@@ -559,8 +734,17 @@
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
 		<discount>28</discount>
-		<requisitesImage>res/requisiteIMG/Делфиш.png</requisitesImage>
-		<isAct>true</isAct>
+		<requisite>
+			<OOO>ООО «ДЕЛФИШ»</OOO>
+			<address>г. Днепр,пр. Гагарина, дом 27,</address>
+			<bank>р/с № 26000050288723</bank>
+			<bank>ПАО КБ «Приватбанк»,МФО 305299</bank>
+			<bank>ОКПО 4096272</bank>
+			<INN>ИПН: 409462704636</INN>
+			<certificate>Выписка № 1704634500002</certificate>
+			<phone>т/ф (056) 7850920</phone>
+		</requisite>
+		<isAct>false</isAct>
 	</Client>
 	
 	
@@ -572,7 +756,15 @@
 			<service description="Обслуживание сервера" count="1" cost="1500" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/КЭН.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ "КЭН"</fop>
+			<bank>Р/р 26004110170001 Банк ПАТ КБ "Приватбанк" МФО 305299   </bank>
+			<address>49000, ДНІПРОПЕТРОВСЬКА ОБЛ., М</address>
+			<address>ДНІПРОПЕТРОВСЬК, ПРОСПЕКТ ГАЗЕТИ "ПРАВДА", БУДИНОК  40-А,</address>
+			<phone> тел.: 056 7908707</phone>
+			<edr>код за ЄДРПОУ 20267461,  ІПН202674604640,  № свід. 04320359</edr>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -585,7 +777,9 @@
 			<service description="IT поддержка" count="1" cost="2000" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Бананы.png</requisitesImage>
+		<requisite>
+			<fop>Банана Клаб</fop>
+		</requisite>
 		<isAct>false</isAct>
 	</Client>
 	
@@ -598,7 +792,17 @@
 			<service description="IT поддержка" count="1" cost="3000" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Акма.png</requisitesImage>
+		<requisite>
+			<fop>Замовник:</fop>
+			<fop>ПП ВКФ “АКМА”</fop>
+			<address>49033, м.Дніпро, пр.Б.Хмельницького, 139К для листування: 49066, м. Дніпро, а/я 3829</address>
+			<bank>р/р 26008000029422 в АТ «Укрексімбанк»,</bank>
+			<mfo>м.Київ, МФО 322313, </mfo>
+			<edr>код ЄДРПОУ 20278565,</edr>
+			<INN>ІПН 202785604622</INN>
+			<email>E-mail: admin@akma.com.ua</email>
+			<phone>тел./факс  (056) 794-32-40</phone>
+		</requisite>
 		<isAct>false</isAct>
 	</Client>
 	
@@ -612,7 +816,13 @@
 			<service description="Обслуживание серверов" count="4" cost="400" />
 		</services>
 		<discount>50</discount>
-		<requisitesImage>res/requisiteIMG/Диекс.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ТОВ СП «Товариство Технічного нагляду Діекс»</fop>
+			<address>49040 м.Дніпро пр.Джинчарадзе 8</address>
+			<bank>р/р 26000050802080</bank>
+			<bank>ЗКПО 32349901 ПАО КБ ПриватБанк</bank>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -625,7 +835,9 @@
 			<service description="Аренда серверов" count="1" cost="530.40" />
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Алкомаркет.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -639,7 +851,9 @@
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
 		<discount>20</discount>
-		<requisitesImage>res/requisiteIMG/Барон.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+		</requisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -651,8 +865,11 @@
 		<services>
 		
 		</services>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Камелот.png</requisitesImage>
+		
 		<isAct>false</isAct>
 	</Client>
 	
@@ -664,7 +881,10 @@
 		
 		</services>
 		<discount>0</discount>
-		<requisitesImage>res/requisiteIMG/Европа.png</requisitesImage>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>Европа+</fop>
+		</requisite>
 		<isAct>false</isAct>
 	</Client>
 	
