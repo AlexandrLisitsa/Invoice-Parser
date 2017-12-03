@@ -88,12 +88,24 @@ public class XMLparser {
 					if (locList.item(tmpList).getNodeName().equals("services")) {
 						addServices(locList, tmpList, clients);
 					}
+					//реквизиты клиентов
 					if (locList.item(tmpList).getNodeName().equals("requisite")) {
 						if(locList.item(tmpList).hasChildNodes()) {
 							NodeList reqList = locList.item(tmpList).getChildNodes();
 							for (int j = 0; j < reqList.getLength(); j++) {
 								if(!reqList.item(j).getNodeName().equals("#text")) {
 									clients.get(clients.size() - 1).getRequisites().add(reqList.item(j).getTextContent());
+								}
+							}
+						}
+					}
+					//наши реквизиты
+					if (locList.item(tmpList).getNodeName().equals("ourRequisite")) {
+						if(locList.item(tmpList).hasChildNodes()) {
+							NodeList reqList = locList.item(tmpList).getChildNodes();
+							for (int j = 0; j < reqList.getLength(); j++) {
+								if(!reqList.item(j).getNodeName().equals("#text")) {
+									clients.get(clients.size() - 1).getOur_requisites().add(reqList.item(j).getTextContent());
 								}
 							}
 						}

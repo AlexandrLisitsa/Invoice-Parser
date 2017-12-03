@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- Реквизиты Ромы
+
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
+
+ -->
+
 <Clients>
 
 	<Client name="Восход">
@@ -10,6 +24,37 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
+	</Client>
+	
+	<Client name="Восход(абон)">
+		<location>z:\Счета\01_Априори\Восход\</location>
+		<upperActTitle>Акт выполненных работ № 01-2</upperActTitle>
+		<lowerActTitle>Выдан ФЛП  Полевой В.А. (Восход) </lowerActTitle>
+		<isAct>true</isAct>
+		<requisite>
+			<customer>Заказчик</customer>
+		</requisite>
+		<services>
+			<service description="IT поддержка" count="1" cost="3000" />
+		</services>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 	</Client>
 	
 	
@@ -23,6 +68,15 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<discount>0</discount>
 		<isAct>true</isAct>
 	</Client>
@@ -38,6 +92,15 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<discount>0</discount>
 		<isAct>true</isAct>
 	</Client>
@@ -53,6 +116,15 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<discount>0</discount>
 		<isAct>true</isAct>
 	</Client>
@@ -68,6 +140,15 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<discount>0</discount>
 		<isAct>true</isAct>
 	</Client>
@@ -83,6 +164,15 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<discount>0</discount>
 		<isAct>true</isAct>
 	</Client>
@@ -103,6 +193,15 @@
 			<bank>р/с 26001050204267 КБ Приватбанк</bank>
 			<mfo>МФО 305399</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<discount>50</discount>
 		<isAct>true</isAct>
 	</Client>
@@ -128,6 +227,15 @@
 			<bank>ДФ АКБ «Индустриалбанк» </bank>
 			<mfo>МФО 307189</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -148,9 +256,44 @@
 			<bank>р/с 26005116474001 в КБ Приватбанк,</bank>
 			<mfo>МФО 305299</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
+	<Client name="Экстрапластик(абон)">
+		<location>z:\Счета\09_Пластик+\</location>
+		<upperActTitle>Акт выполненных работ № 09</upperActTitle>
+		<lowerActTitle>Выдан  ООО с ИИ «Экстра Пластик» </lowerActTitle>
+		<services>
+			<service description="Деятельность по управлению компьютерным оборудованием" count="1" cost="800" />
+		</services>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<OOO>ООО с ИИ «Экстра Пластик»</OOO>
+			<INN>ИНН 246035704658. ОКПО 2463571</INN>
+			<address>Адрес: 49081 г. Днепропетровск ул. Артельная 9-б</address>
+			<bank>р/с 26005116474001 в КБ Приватбанк,</bank>
+			<mfo>МФО 305299</mfo>
+		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
+		<isAct>true</isAct>
+	</Client>
 	
 	<Client name="Техноэкос">
 		<location>z:\Счета\21_Техноэкос\</location>
@@ -169,12 +312,21 @@
 			<bank>Днепропетровск</bank>
 			<mfo>МФО 351005</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
 	
 	<Client name="Швейка">
-		<location>z:\Счета\22_Швейная Б 2300\10_Акты_швейка\</location>
+		<location>z:\Счета\22_Швейная Б 2300\11_Акты_швейка\</location>
 		<upperActTitle>Акт выполненных работ № 22</upperActTitle>
 		<lowerActTitle>Выдан ФЛП Левина Т.М. </lowerActTitle>
 		<services>
@@ -188,9 +340,115 @@
 			<edr>ЕДРПОУ  2716813066</edr>
 			<address>Адрес: 49000 г. Днепропетровск, ул.Лабораторная 46/3</address>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
+	<Client name="Швейка(ткани1)">
+		<location>z:\Счета\22_Швейная Б 2300\11_Акты_швейка\</location>
+		<upperActTitle>Акт выполненных работ № 22-3</upperActTitle>
+		<lowerActTitle>Выдан ФЛП Волынская Т.С. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="8" cost="104.16" />
+		</services>
+		<discount>0</discount>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>фоп Волынская Т.С.</fop>
+		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
+		<isAct>true</isAct>
+	</Client>
+	
+	<Client name="Швейка(ткани2)">
+		<location>z:\Счета\22_Швейная Б 2300\11_Акты_швейка\</location>
+		<upperActTitle>Акт выполненных работ № 22-5</upperActTitle>
+		<lowerActTitle>Выдан ФОП Капулер С.Б. </lowerActTitle>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФОП Капулер С.Б.</fop>
+			<edr>ЄДРПОУ 2830224038</edr>
+			<address>Адреса: 49000, ДНІПРОПЕТРОВСЬКА ОБЛ., МІСТО </address>
+			<address>ДНІПРОПЕТРОВСЬК,КОМСОМОЛЬСЬКА,БУДИНОК 27, КВАРТИРА 15</address>
+			<INN>ІПН 2830224038</INN>
+			<mfo>МФО 307350</mfo>
+			<bank>р\р 26007600250901 в ПАТ «АКБ «КОНКОРД»</bank>
+		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
+		<isAct>true</isAct>
+	</Client>
+	
+	<Client name="Швейка(ЗП)">
+		<location>z:\Счета\22_Швейная Б 2300\11_Акты_швейка\</location>
+		<upperActTitle>Акт выполненных работ № 22-2</upperActTitle>
+		<lowerActTitle>Выдан ФЛП ФЛП Левина Н.И. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="6" cost="138.80" />
+		</services>
+		<discount>0</discount>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФЛП Левина Н.И. </fop>
+		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
+		<isAct>true</isAct>
+	</Client>
+	
+	<Client name="Швейка(КР)">
+		<location>z:\Счета\22_Швейная Б 2300\11_Акты_швейка\</location>
+		<upperActTitle>Акт выполненных работ № 22-4</upperActTitle>
+		<lowerActTitle>Выдан Московская И.С. </lowerActTitle>
+		<services>
+			<service description="Обслуживание рабочих станций" count="7" cost="119.04" />
+		</services>
+		<discount>0</discount>
+		<requisite>
+			<customer>Заказчик:</customer>
+			<fop>ФЛП Московская И.С.</fop>
+		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
+		<isAct>true</isAct>
+	</Client>
 	
 	<Client name="Хотгриль">
 		<location>z:\Счета\24_Хотгриль\</location>
@@ -210,6 +468,15 @@
 			<bank>р/р 26006001311574  в ПАТ Актабанк,</bank>
 			<mfo>МФО 307394</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -231,6 +498,15 @@
 			<address>Адрес: 49054,м..Дніпропетровськ,</address>
 			<address>Пр. Кірова буд 62 прим 22</address>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -250,6 +526,15 @@
 			<edr>ЕДРПОУ 2269600252</edr>
 			<address>Адрес: 49000 Днепропетровск, пер.Шевченко 4, оф  67-а</address>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -272,6 +557,15 @@
 			<bank>Р/с 26002050269795 в  ПАТ КБ "ПРИВАТБАНК" Днiпро</bank>
 			<mfo>МФО  305299</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -296,6 +590,15 @@
 			<INN>ІПН  406812104622</INN>
 			<dir>Директор Мещеряков  Віктор Володимирович</dir>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -311,6 +614,15 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<discount>33</discount>
 		<isAct>true</isAct>
 	</Client>
@@ -333,6 +645,15 @@
 			<bank>р/с 26008399766 в АТ «Райффайзен Банк Аваль» г.Киев </bank>
 			<mfo>МФО 380805</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -355,6 +676,15 @@
 			<bank>Дніпропетровська</bank>
 			<mfo>МФО 305299</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -377,6 +707,15 @@
 			<certificate>Св-во №100068910</certificate>
 			<INN>ИНН 349153104638</INN>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -393,6 +732,15 @@
 		<requisite>
 			<customer>Заказчик:</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -429,6 +777,15 @@
 			<bank>р\р 26001050241770 в КБ Приватбанк</bank>
 			<mfo>МФО 305299</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>false</isAct>
 	</Client>
 	
@@ -448,6 +805,15 @@
 			<edr>ЕГРПОУ 2983703768</edr>
 			<address>Адрес: 49000 г Днепропетровск, ул. Байкальская 84/110</address>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -471,6 +837,15 @@
 			<bank>Днiпропетровськ. </bank>
 			<mfo>МФО 305299</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -494,6 +869,15 @@
 			<bank>Днiпропетровськ. </bank>
 			<mfo>МФО 305299</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -517,6 +901,15 @@
 			<address>Адрес прописки: г. Днепропетровск ,пр. Кирова,</address>
 			<address>Дом 20, квартира 52</address>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -539,6 +932,15 @@
 			<bank>м. Дніпропетровськ.</bank>
 			<bank>339555</bank>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -561,6 +963,15 @@
 			<INN>ИНН  2818603368</INN>
 			<phone>Тел. (056) 371 06 61, (056) 371 06 46</phone>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -576,6 +987,15 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<discount>0</discount>
 		<isAct>true</isAct>
 	</Client>
@@ -591,6 +1011,15 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<discount>50</discount>
 		<isAct>true</isAct>
 	</Client>
@@ -613,6 +1042,15 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>false</isAct>
 	</Client>
 	
@@ -660,6 +1098,15 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -680,6 +1127,15 @@
 			<bank>Расчетн. счёт - 26006050009036</bank>
 			<mfo>МФО - 305299</mfo>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<discount>0</discount>
 		<isAct>true</isAct>
 	</Client>
@@ -706,6 +1162,15 @@
 			<space> </space>
 			<dir>Директор Усенко В.В.</dir>
 		</requisite>
+		<ourRequisite>
+			<provider>Виконавець:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -744,6 +1209,15 @@
 			<certificate>Выписка № 1704634500002</certificate>
 			<phone>т/ф (056) 7850920</phone>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>false</isAct>
 	</Client>
 	
@@ -765,6 +1239,15 @@
 			<phone> тел.: 056 7908707</phone>
 			<edr>код за ЄДРПОУ 20267461,  ІПН202674604640,  № свід. 04320359</edr>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -803,6 +1286,15 @@
 			<email>E-mail: admin@akma.com.ua</email>
 			<phone>тел./факс  (056) 794-32-40</phone>
 		</requisite>
+		<ourRequisite>
+			<provider>Виконавець:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>false</isAct>
 	</Client>
 	
@@ -823,6 +1315,15 @@
 			<bank>р/р 26000050802080</bank>
 			<bank>ЗКПО 32349901 ПАО КБ ПриватБанк</bank>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -854,6 +1355,15 @@
 		<requisite>
 			<customer>Заказчик:</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>true</isAct>
 	</Client>
 	
@@ -868,6 +1378,15 @@
 		<requisite>
 			<customer>Заказчик</customer>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<discount>0</discount>
 		
 		<isAct>false</isAct>
@@ -885,8 +1404,16 @@
 			<customer>Заказчик:</customer>
 			<fop>Европа+</fop>
 		</requisite>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 		<isAct>false</isAct>
 	</Client>
-	
-	
+		
 </Clients>

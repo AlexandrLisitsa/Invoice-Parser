@@ -19,6 +19,7 @@ public class Client {
 	private boolean isAct;
 	//реквизиты
 	private ArrayList<String> requisites = new ArrayList<String>();
+	private ArrayList<String> our_requisites = new ArrayList<String>();
 	
 	
 	public double getTotalAdditionsCost() {
@@ -175,6 +176,14 @@ public class Client {
 
 	public void setRequisites(ArrayList<String> requisites) {
 		this.requisites = requisites;
+	}
+
+	public ArrayList<String> getOur_requisites() {
+		return our_requisites;
+	}
+
+	public void setOur_requisites(ArrayList<String> our_requisites) {
+		this.our_requisites = our_requisites;
 	}
 
 }

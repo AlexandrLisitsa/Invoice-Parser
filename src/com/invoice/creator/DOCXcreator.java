@@ -39,7 +39,7 @@ public class DOCXcreator {
 	private FileInputStream is;
 	private Calendar calendar = Calendar.getInstance();
 	private Client client;
-	private XWPFTable table,requisiteTable;
+	private XWPFTable table, requisiteTable;
 
 	public void createInvoice(Client client) {
 		this.client = client;
@@ -62,10 +62,10 @@ public class DOCXcreator {
 	}
 
 	private void createTableTotal() {
-		createTableTitle(null, "ИТОГО", null, null, null);
+		createTableTitle(null, "ИТОГО", null, null, null,ParagraphAlignment.CENTER);
 		table.getRow(0).getCell(4).getParagraphs().get(0).getRuns().get(0).setBold(true);
 		table.getRow(0).getCell(4).getParagraphs().get(0).getRuns().get(0).setText(getFormatedDecimal(createTotal()));
-		formatTable(table);
+		formatTable(table,ParagraphAlignment.CENTER);
 	}
 
 	private double createTotal() {
@@ -81,24 +81,25 @@ public class DOCXcreator {
 
 	private void createTableDiscount() {
 		if (client.getDiscount() > 0) {
-			createTableTitle(null, "Скидка на услуги(без аренды серверов): " + client.getDiscount() + " %", null, null, null);
+			createTableTitle(null, "Скидка на услуги(без аренды серверов): " + client.getDiscount() + " %", null, null,
+					null,ParagraphAlignment.CENTER);
 			table.getRow(0).getCell(2).setText("Итого");
 			table.getRow(0).getCell(4).setText(getFormatedDecimal(client.getTotalServersCost()
 					+ (client.getTotalServiceCost() - (client.getTotalServiceCost() * (client.getDiscount() / 100)))));
-			formatTable(table);
+			formatTable(table,ParagraphAlignment.CENTER);
 		}
 	}
 
 	private void createTableServices() {
 		if (client.getServices().size() > 0) {
-			createTableTitle("№", "Услуги:", "Кол-во", "Цена,грн", "Стоимость,грн");
-			formatTable(table);
+			createTableTitle("№", "Услуги:", "Кол-во", "Цена,грн", "Стоимость,грн",ParagraphAlignment.CENTER);
+			formatTable(table,ParagraphAlignment.CENTER);
 
 			int row = 0;
 
 			// создание таблицы сервисов
 			table = doc.createTable(client.getServices().size() + client.getServers().size(), 5);
-			formatTable(table);
+			formatTable(table,ParagraphAlignment.LEFT);
 			for (int i = row; row < client.getServices().size(); i++, row++) {
 				table.getRow(row).getCell(0).setText(String.valueOf(i + 1));
 				table.getRow(row).getCell(1).setText(client.getServices().get(i).getDescription());
@@ -125,13 +126,13 @@ public class DOCXcreator {
 		ArrayList<Addition> additions = client.getAdditions();
 		int row = 0;
 
-		createTableTitle("№", "Дополнительные услуги:", "Кол-во", "Цена,грн", "Стоимость,грн");
-		formatTable(table);
+		createTableTitle("№", "Дополнительные услуги:", "Кол-во", "Цена,грн", "Стоимость,грн",ParagraphAlignment.CENTER);
+		formatTable(table,ParagraphAlignment.CENTER);
 
 		// создание таблицы допов/поставок/заправок
 		table = doc.createTable(
 				client.getDeliveries().size() + client.getCartridges().size() + client.getAdditions().size(), 5);
-		formatTable(table);
+		formatTable(table,ParagraphAlignment.LEFT);
 		// заполнение таблицы допов/поставок/заправок
 
 		// заправки
@@ -237,21 +238,20 @@ public class DOCXcreator {
 	}
 
 	private int getPrevMonth() {
-		if (calendar.get(Calendar.MONTH)==0) {
+		if (calendar.get(Calendar.MONTH) == 0) {
 			return 10;
-		}else if(calendar.get(Calendar.MONTH)==1) {
+		} else if (calendar.get(Calendar.MONTH) == 1) {
 			return 11;
-		}
-		else {
+		} else {
 			return calendar.get(Calendar.MONTH) - 2;
 		}
 	}
-	
+
 	private int getCurrentMonth() {
-		if(calendar.get(Calendar.MONTH)==0) {
+		if (calendar.get(Calendar.MONTH) == 0) {
 			return 11;
-		}else {
-			return calendar.get(Calendar.MONTH)-1;
+		} else {
+			return calendar.get(Calendar.MONTH) - 1;
 		}
 	}
 
@@ -297,70 +297,59 @@ public class DOCXcreator {
 		}
 	}
 
-	
 	/*
-	private void createActRequisite() {
-		paragraph = doc.createParagraph();
-		run = paragraph.createRun();
-		String imagePath = client.getRequisiteImgPath();
-		BufferedImage img = null;
-		try {
-			img = ImageIO.read(new File(client.getRequisiteImgPath()));
-		} catch (IOException e2) {
-			// TODO Auto-generated catch block
-			// e2.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Не заполнены реквизиты " + client.getClientName());
-		}
-		try {
-			is = new FileInputStream(imagePath);
-			try {
-				run.addPicture(is, XWPFDocument.PICTURE_TYPE_PNG, imagePath, Units.toEMU(img.getWidth() * 0.7),
-						Units.toEMU(img.getHeight() * 0.7));
-			} catch (InvalidFormatException | IOException e) {
-				// TODO Auto-generated catch block
-				// e.printStackTrace();
-			}
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} finally {
-			try {
-				is.close();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	*/
-	
+	 * private void createActRequisite() { paragraph = doc.createParagraph(); run =
+	 * paragraph.createRun(); String imagePath = client.getRequisiteImgPath();
+	 * BufferedImage img = null; try { img = ImageIO.read(new
+	 * File(client.getRequisiteImgPath())); } catch (IOException e2) { // TODO
+	 * Auto-generated catch block // e2.printStackTrace();
+	 * JOptionPane.showMessageDialog(null, "Не заполнены реквизиты " +
+	 * client.getClientName()); } try { is = new FileInputStream(imagePath); try {
+	 * run.addPicture(is, XWPFDocument.PICTURE_TYPE_PNG, imagePath,
+	 * Units.toEMU(img.getWidth() * 0.7), Units.toEMU(img.getHeight() * 0.7)); }
+	 * catch (InvalidFormatException | IOException e) { // TODO Auto-generated catch
+	 * block // e.printStackTrace(); } } catch (FileNotFoundException e1) { // TODO
+	 * Auto-generated catch block e1.printStackTrace(); } finally { try {
+	 * is.close(); } catch (Exception e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); } } }
+	 * 
+	 */
+
 	private void createActRequisite() {
 		doc.createParagraph();
-		//создаем таблицу реквизитов
-		requisiteTable=doc.createTable(1, 2);
+		// создаем таблицу реквизитов
+		requisiteTable = doc.createTable(1, 2);
 		requisiteTable.getCTTbl().setTblPr(getExampleCTTblPr());
-		//заполняем реквизиты клиенты
-		requisiteTable.getRow(0).getCell(0).removeParagraph(0);
-		for (String x : client.getRequisites()) {
-			if(x.indexOf(0)!=' ') {
-			requisiteTable.getRow(0).getCell(0).addParagraph().createRun().setText(x);
+		// заполняем реквизиты клиенты
+		if (client.getRequisites().size() != 0) {
+			requisiteTable.getRow(0).getCell(0).removeParagraph(0);
+			for (String x : client.getRequisites()) {
+				if (x.indexOf(0) != ' ') {
+					requisiteTable.getRow(0).getCell(0).addParagraph().createRun().setText(x);
+				}
+			}
+		}
+		// наши реквизиты
+		if (client.getOur_requisites().size() != 0) {
+			requisiteTable.getRow(0).getCell(1).removeParagraph(0);
+			for (String x : client.getOur_requisites()) {
+				requisiteTable.getRow(0).getCell(1).addParagraph().createRun().setText(x);
 			}
 		}
 		setTableFontSize(requisiteTable, 1, 2, 10);
 	}
-	
-	private void setTableFontSize(XWPFTable table,int row,int col,int fontSize) {
+
+	private void setTableFontSize(XWPFTable table, int row, int col, int fontSize) {
 		for (int rows = 0; rows < row; rows++) {
 			for (int cols = 0; cols < col; cols++) {
-				List<XWPFParagraph> tPar=table.getRow(rows).getCell(cols).getParagraphs();
+				List<XWPFParagraph> tPar = table.getRow(rows).getCell(cols).getParagraphs();
 				for (XWPFParagraph x : tPar) {
 					x.setSpacingAfter(0);
 					x.setSpacingAfterLines(0);
 					x.setSpacingBefore(0);
 					x.setSpacingBeforeLines(0);
 					x.setSpacingBetween(0.9);
-					List<XWPFRun> tRun=x.getRuns();
+					List<XWPFRun> tRun = x.getRuns();
 					for (XWPFRun runs : tRun) {
 						runs.setFontFamily("times new roman");
 						runs.setFontSize(fontSize);
@@ -369,8 +358,8 @@ public class DOCXcreator {
 			}
 		}
 	}
-	
-	//метод для подгрузки стиля таблицы
+
+	// метод для подгрузки стиля таблицы
 	private CTTblPr getExampleCTTblPr() {
 		InputStream is = null;
 		try {
@@ -386,7 +375,7 @@ public class DOCXcreator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 		return tdoc.getTableArray(0).getCTTbl().getTblPr();
 	}
 
@@ -428,7 +417,7 @@ public class DOCXcreator {
 		}
 	}
 
-	private void formatTable(XWPFTable tmpTable) {
+	private void formatTable(XWPFTable tmpTable,ParagraphAlignment alignment) {
 		List<XWPFParagraph> parList;
 		for (int row = 0; row < tmpTable.getNumberOfRows(); row++) {
 			for (int col = 0; col < 5; col++) {
@@ -439,7 +428,7 @@ public class DOCXcreator {
 					tmpTable.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW()
 							.setW(BigInteger.valueOf(DESCRIPTION_CELL_SIZE));
 					parList = tmpTable.getRow(row).getCell(col).getParagraphs();
-					parList.get(0).setAlignment(ParagraphAlignment.CENTER);
+					parList.get(0).setAlignment(alignment);
 					parList.get(0).setVerticalAlignment(TextAlignment.CENTER);
 
 				} else {
@@ -453,7 +442,7 @@ public class DOCXcreator {
 		}
 	}
 
-	private void createTableTitle(String number, String description, String count, String price, String totalCost) {
+	private void createTableTitle(String number, String description, String count, String price, String totalCost,ParagraphAlignment align) {
 		table = doc.createTable(1, 5);
 		for (int i = 0; i < 5; i++) {
 			List<XWPFParagraph> tpar = table.getRow(0).getCell(i).getParagraphs();
@@ -473,6 +462,6 @@ public class DOCXcreator {
 				run.setText(totalCost);
 			}
 		}
-		formatTable(table);
+		formatTable(table,align);
 	}
 }
