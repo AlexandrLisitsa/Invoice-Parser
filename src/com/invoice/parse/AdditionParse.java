@@ -53,12 +53,18 @@ public class AdditionParse {
 		Iterator<Row> it = sheet.iterator();
 		while (it.hasNext()) {
 			Row row = it.next();
-			for (int i = 0; i < clients.size(); i++) {
-				if (row.getCell(clientCellIndex).toString().equalsIgnoreCase(clients.get(i).getClientName())) {
-					clients.get(i).setAccrued(Double.parseDouble((row.getCell(accruedCellIndex).toString())));
-					clients.get(i).setPayd(Double.parseDouble((row.getCell(paydCellIndex).toString())));
-					break;
+			try {
+				for (int i = 0; i < clients.size(); i++) {
+
+					if (row.getCell(clientCellIndex).toString().equalsIgnoreCase(clients.get(i).getClientName())) {
+						clients.get(i).setAccrued(Double.parseDouble((row.getCell(accruedCellIndex).toString())));
+						clients.get(i).setPayd(Double.parseDouble((row.getCell(paydCellIndex).toString())));
+						break;
+					}
+
 				}
+			} catch (Exception e) {
+				// TODO: handle exception
 			}
 		}
 	}

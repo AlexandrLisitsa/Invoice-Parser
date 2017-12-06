@@ -62,10 +62,10 @@ public class DOCXcreator {
 	}
 
 	private void createTableTotal() {
-		createTableTitle(null, "ИТОГО", null, null, null,ParagraphAlignment.CENTER);
+		createTableTitle(null, "ИТОГО", null, null, null, ParagraphAlignment.CENTER);
 		table.getRow(0).getCell(4).getParagraphs().get(0).getRuns().get(0).setBold(true);
 		table.getRow(0).getCell(4).getParagraphs().get(0).getRuns().get(0).setText(getFormatedDecimal(createTotal()));
-		formatTable(table,ParagraphAlignment.CENTER);
+		formatTable(table, ParagraphAlignment.CENTER);
 	}
 
 	private double createTotal() {
@@ -82,24 +82,24 @@ public class DOCXcreator {
 	private void createTableDiscount() {
 		if (client.getDiscount() > 0) {
 			createTableTitle(null, "Скидка на услуги(без аренды серверов): " + client.getDiscount() + " %", null, null,
-					null,ParagraphAlignment.CENTER);
+					null, ParagraphAlignment.CENTER);
 			table.getRow(0).getCell(2).setText("Итого");
 			table.getRow(0).getCell(4).setText(getFormatedDecimal(client.getTotalServersCost()
 					+ (client.getTotalServiceCost() - (client.getTotalServiceCost() * (client.getDiscount() / 100)))));
-			formatTable(table,ParagraphAlignment.CENTER);
+			formatTable(table, ParagraphAlignment.CENTER);
 		}
 	}
 
 	private void createTableServices() {
 		if (client.getServices().size() > 0) {
-			createTableTitle("№", "Услуги:", "Кол-во", "Цена,грн", "Стоимость,грн",ParagraphAlignment.CENTER);
-			formatTable(table,ParagraphAlignment.CENTER);
+			createTableTitle("№", "Услуги:", "Кол-во", "Цена,грн", "Стоимость,грн", ParagraphAlignment.CENTER);
+			formatTable(table, ParagraphAlignment.CENTER);
 
 			int row = 0;
 
 			// создание таблицы сервисов
 			table = doc.createTable(client.getServices().size() + client.getServers().size(), 5);
-			formatTable(table,ParagraphAlignment.LEFT);
+			formatTable(table, ParagraphAlignment.LEFT);
 			for (int i = row; row < client.getServices().size(); i++, row++) {
 				table.getRow(row).getCell(0).setText(String.valueOf(i + 1));
 				table.getRow(row).getCell(1).setText(client.getServices().get(i).getDescription());
@@ -126,13 +126,14 @@ public class DOCXcreator {
 		ArrayList<Addition> additions = client.getAdditions();
 		int row = 0;
 
-		createTableTitle("№", "Дополнительные услуги:", "Кол-во", "Цена,грн", "Стоимость,грн",ParagraphAlignment.CENTER);
-		formatTable(table,ParagraphAlignment.CENTER);
+		createTableTitle("№", "Дополнительные услуги:", "Кол-во", "Цена,грн", "Стоимость,грн",
+				ParagraphAlignment.CENTER);
+		formatTable(table, ParagraphAlignment.CENTER);
 
 		// создание таблицы допов/поставок/заправок
 		table = doc.createTable(
 				client.getDeliveries().size() + client.getCartridges().size() + client.getAdditions().size(), 5);
-		formatTable(table,ParagraphAlignment.LEFT);
+		formatTable(table, ParagraphAlignment.LEFT);
 		// заполнение таблицы допов/поставок/заправок
 
 		// заправки
@@ -194,8 +195,7 @@ public class DOCXcreator {
 					table.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW()
 							.setW(BigInteger.valueOf(NUMBER_CELL_SUZE));
 				} else if (col == 1) {
-					table.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW()
-							.setW(BigInteger.valueOf(DESCRIPTION_CELL_SIZE));
+					table.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW().setW(BigInteger.valueOf(5455));
 					if (row == 0) {
 						parList = table.getRow(row).getCell(col).getParagraphs();
 						parList.get(0).setAlignment(ParagraphAlignment.CENTER);
@@ -213,6 +213,7 @@ public class DOCXcreator {
 						table.getRow(row).getCell(col).setText("Задолженность на");
 					}
 				} else if (col == 2) {
+					table.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW().setW(BigInteger.valueOf(905));
 					if (row == 0) {
 						table.getRow(row).getCell(col).setText(Months.getMonth(prevMonth, "rus"));
 					}
@@ -221,7 +222,14 @@ public class DOCXcreator {
 					}
 					if (row == 2) {
 						table.getRow(row).getCell(col).setText(Months.getMonth(nextMonth, "rus"));
+					} else if (col == 4) {
+
 					}
+				} else if (col == 4) {
+					parList = table.getRow(row).getCell(col).getParagraphs();
+					parList.get(0).setAlignment(ParagraphAlignment.CENTER);
+					parList.get(0).setVerticalAlignment(TextAlignment.CENTER);
+					table.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW().setW(BigInteger.valueOf(1500));
 				} else {
 					parList = table.getRow(row).getCell(col).getParagraphs();
 					parList.get(0).setAlignment(ParagraphAlignment.CENTER);
@@ -407,8 +415,12 @@ public class DOCXcreator {
 
 	private void save() {
 		try {
+
+			int month = calendar.get(Calendar.MONTH) + 1;
 			doc.write(new FileOutputStream(
-					new File("C:\\Users\\wypik\\Desktop\\invoices\\DOCX\\" + client.getClientName() + ".docx")));
+					new File("C:\\Users\\wypik\\Desktop\\invoices\\DOCX\\" + month + "_" + client.getClientName() + ".docx"))
+					//new File(client.getLocation()+month+"_"+ client.getClientName() + ".docx"))
+			);
 			doc.close();
 
 		} catch (IOException e) {
@@ -417,7 +429,7 @@ public class DOCXcreator {
 		}
 	}
 
-	private void formatTable(XWPFTable tmpTable,ParagraphAlignment alignment) {
+	private void formatTable(XWPFTable tmpTable, ParagraphAlignment alignment) {
 		List<XWPFParagraph> parList;
 		for (int row = 0; row < tmpTable.getNumberOfRows(); row++) {
 			for (int col = 0; col < 5; col++) {
@@ -442,7 +454,8 @@ public class DOCXcreator {
 		}
 	}
 
-	private void createTableTitle(String number, String description, String count, String price, String totalCost,ParagraphAlignment align) {
+	private void createTableTitle(String number, String description, String count, String price, String totalCost,
+			ParagraphAlignment align) {
 		table = doc.createTable(1, 5);
 		for (int i = 0; i < 5; i++) {
 			List<XWPFParagraph> tpar = table.getRow(0).getCell(i).getParagraphs();
@@ -462,6 +475,6 @@ public class DOCXcreator {
 				run.setText(totalCost);
 			}
 		}
-		formatTable(table,align);
+		formatTable(table, align);
 	}
 }
