@@ -91,7 +91,7 @@ public class DOCXcreator {
 	}
 
 	private void createTableServices() {
-		if (client.getServices().size() > 0) {
+		if (client.getServices().size() > 0||client.getServers().size()>0) {
 			createTableTitle("№", "Услуги:", "Кол-во", "Цена,грн", "Стоимость,грн", ParagraphAlignment.CENTER);
 			formatTable(table, ParagraphAlignment.CENTER);
 

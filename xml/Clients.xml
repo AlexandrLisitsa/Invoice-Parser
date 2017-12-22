@@ -215,7 +215,7 @@
 			<service description="Обслуживание рабочих станций" count="9" cost="400" />
 		 	<service description="Сопровождение видеонаблюдения" count="1" cost="100" />
 		 	<service description="Обслуживание серверов" count="4" cost="600" />
-		 	<server description="Аренда сервера в ДЦ „Хецнер“ по курсу 31,26" count="1" cost="54.9*1.029*1.05*31.26" /> <!-- 54,9*1,029*1,05*31,26 -->
+		 	<server description="Аренда сервера в ДЦ „Хецнер“ по курсу 33.31" count="1" cost="54.9*1.029*1.05*33.31" /> <!-- 54,9*1,029*1,05*31,26 -->
 		</services>
 		<discount>50</discount>
 		<requisite>
@@ -487,7 +487,7 @@
 		<lowerActTitle>Выдан ООО «Оптидея Плюс» </lowerActTitle>
 		<services>
 			<service description="Обслуживание рабочих станций" count="10" cost="400" />
-		 	<server description="Оплата Сервер + второй IP 56,49 евро по курсу 31,26" count="1" cost="56.49*31.26*1.05" /> <!-- 56,49*31,26*1,05 -->
+		 	<server description="Оплата Сервер + второй IP 56,49 евро по курсу 33.31" count="1" cost="56.49*33.31*1.05" /> <!-- 56,49*31,26*1,05 -->
 			<service description="Обслуживание серверов" count="2" cost="600" />
 		</services>
 		<discount>40</discount>
@@ -576,8 +576,8 @@
 		<lowerActTitle>Выдан ООО «Вебтранс-Логистик Плюс» </lowerActTitle>
 		<services>
 			<service description="Обслуживание рабочих станций" count="27" cost="100" />
-		 	<server description="Оплата серверов 133,56 евро по курсу 31,26" count="1" cost="133.56*31.26*1.05" /> <!-- =133,56*31,26*1,05 -->
-		 	<server description="Оплата доп. IP адресов 10,29 евро по курсу 31,26" count="1" cost="10.29*31.26*1.05" /> <!-- =10,29*31,26*1,05 -->		
+		 	<server description="Оплата серверов 133,56 евро по курсу 33.31" count="1" cost="133.56*33.31*1.05" /> <!-- =133,56*31,26*1,05 -->
+		 	<server description="Оплата доп. IP адресов 10,29 евро по курсу 33.31" count="1" cost="10.29*33.31*1.05" /> <!-- =10,29*31,26*1,05 -->		
 			<service description="Обслуживание серверов" count="7" cost="200" />
 		</services>
 		<discount>0</discount>
@@ -856,7 +856,7 @@
 		<lowerActTitle>Выдан ТОВ «Електропостачзбут» </lowerActTitle>
 		<services>
 			<service description="Обслуживание рабочих станций" count="9" cost="400" />
-		 	<server description="Оплата серверов в ДЦ" count="1" cost="79.9*26.95*1.05" /> <!-- 79,9*26,95*1,05 -->
+		 	<server description="Оплата серверов в ДЦ" count="1" cost="79.9*33.31*1.05" /> <!-- 79,9*26,95*1,05 -->
 			<service description="Обслуживание серверной инфраструктуры" count="1" cost="600" />
 		</services>
 		<discount>26</discount>
@@ -888,7 +888,7 @@
 		<lowerActTitle>Выдан ТОВ «Мегаавтоинвест» </lowerActTitle>
 		<services>
 			<service description="Обслуживание рабочих станций" count="3" cost="400" />
-		 	<server description="Оплата серверов в ДЦ курс евро 31,26" count="1" cost="54.9*1.029*1.05*31.26" /> <!-- 54,9*1,029*1,05*31,26 -->
+		 	<server description="Оплата серверов в ДЦ курс евро 33.31" count="1" cost="54.9*1.029*1.05*33.31" /> <!-- 54,9*1,029*1,05*31,26 -->
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
 		<discount>10</discount>
@@ -981,7 +981,7 @@
 		<upperActTitle>Акт выполненных работ № 51</upperActTitle>
 		<lowerActTitle>Выдан ТОВ «Мобиндастри» </lowerActTitle>
 		<services>
-		 	<server description="Оплата серверов в ДЦ  56,50 курс евро 31,26" count="1" cost="54.9*1.029*1.05*31.26" /> <!-- 54,9*1,029*1,05*31,26 -->
+		 	<server description="Оплата серверов в ДЦ  56,50 курс евро 33.31" count="1" cost="54.9*1.029*1.05*33.31" /> <!-- 54,9*1,029*1,05*31,26 -->
 			<service description="Обслуживание серверов ($20 по 26,9)" count="1" cost="20*26.9" /> <!-- 20*26,9 -->
 		</services>
 		<requisite>
@@ -1030,12 +1030,12 @@
 		<upperActTitle>Счет № 53</upperActTitle>
 		<lowerActTitle>Выдан ООО «Импера Групп» </lowerActTitle>
 		<services>
-			<server description="Аренда серверов Server #1 , курс 31,26" count="1" cost="58.82*1.05*31.26" /> <!-- (57,98+0,84)*1,05*31,26 -->
-			<server description="Аренда серверов Server #2 , курс 31,26" count="1" cost="54.9*1.05*31.26" /> <!-- 54,9*1,05*31,26 -->
-			<server description="Аренда серверов Server #4 , курс 31,26" count="1" cost="39.84*1.05*31.26" /> <!-- (39+0,84)*1,05*31,26 -->
-			<server description="Аренда серверов Server #5 , курс 31,26" count="1" cost="39.84*1.05*31.26" /> <!-- (39+0,84)*1,05*31,26 -->
-			<server description="Аренда серверов Server #6 , курс 31,26" count="1" cost="39.84*1.05*31.26" /> <!-- (39+0,84)*1,05*31,26 -->
-			<server description="Аренда серверов Server #7 , курс 31,26" count="1" cost="39.84*1.05*31.26" /> <!-- (39+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #1 , курс 33.31" count="1" cost="58.82*1.05*33.31" /> <!-- (57,98+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #2 , курс 33.31" count="1" cost="54.9*1.05*33.31" /> <!-- 54,9*1,05*31,26 -->
+			<server description="Аренда серверов Server #4 , курс 33.31" count="1" cost="39.84*1.05*33.31" /> <!-- (39+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #5 , курс 33.31" count="1" cost="39.84*1.05*33.31" /> <!-- (39+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #6 , курс 33.31" count="1" cost="39.84*1.05*33.31" /> <!-- (39+0,84)*1,05*31,26 -->
+			<server description="Аренда серверов Server #7 , курс 33.31" count="1" cost="39.84*1.05*33.31" /> <!-- (39+0,84)*1,05*31,26 -->
 			<service description="Деятельность по управлению компьютерным оборудованием" count="1" cost="4500" />
 		</services>
 		<discount>0</discount>
@@ -1147,7 +1147,7 @@
 		<lowerActTitle>Выдан ФОП УСЕНКО ВІКТОРІЯ ВІКТОРІВНА </lowerActTitle>
 		<services>
 			<service description="Обслуговування робочих станцій" count="2" cost="250" />
-		 	<server description="Оренда сервера  40 євро за курсом 31,26" count="1" cost="40*31.26" /> <!-- 40*31,26 -->
+		 	<server description="Оренда сервера  40 євро за курсом 33.31" count="1" cost="40*33.31*1.05" /> <!-- 40*31,26 -->
 			<service description="Обслуговування серверів" count="1" cost="300" />
 			<service description="Супровід ПО 1С" count="1" cost="1000" />
 		</services>
@@ -1351,7 +1351,7 @@
 			<service description="Обслуживание рабочих станций" count="14" cost="400" />
 			<service description="Обслуживание серверов" count="1" cost="600" />
 		</services>
-		<discount>20</discount>
+		<discount>51</discount>
 		<requisite>
 			<customer>Заказчик:</customer>
 		</requisite>
@@ -1436,8 +1436,26 @@
 	<lowerActTitle>Выдан Мищенко </lowerActTitle>
 	<location>z:\Счета\73_Мищенко\</location>
 	<services>
-		<service description="Аренда сервера 30 евро по курсу 32,39" count="1" cost="32.39*30" />
+		<server description="Аренда сервера 30 евро по курсу 33.31" count="1" cost="33.31*30*1.05" />
 	</services>
+	</Client>
+	
+	<Client name="Гермес">
+		<upperActTitle>Счет№72</upperActTitle>
+		<lowerActTitle>Выдан Гермес Гранд ВолТим</lowerActTitle>
+		<location>Z:\Счета72_Гермес Гранд ВолТим\</location>
+		<services>
+			<server description="Аренда сервера" count="1" cost="58.82*33.31*1.05" />
+		</services>
+		<ourRequisite>
+			<provider>Исполнитель:</provider>
+			<fop>ФЛП “Лимаренко Роман Владимирович”</fop>
+			<address>Юридический адрес: 49107, г. Днепропетровск, пер. Брянский, д.13, кв.3, т (063)7947573</address>
+			<address>Адрес для писем: 49000, г. Днепропетровск, ул Плеханова, д.18, оф.402, т (063)7947573</address>
+			<bank>Р/с 26002050239758 в КБ «Приватбанк» МФО305299</bank>
+			<edr>ЕГРПОУ 2964913130</edr>
+			<certificate>свидет-во гос. регистрации № 668673</certificate>
+		</ourRequisite>
 	</Client>
 		
 </Clients>
