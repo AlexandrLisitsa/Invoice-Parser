@@ -36,7 +36,6 @@ public class XMLparser {
 	}
 
 	public void parseXMLClients(ArrayList<Client> clients) {
-
 		try {
 			builder = dbf.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {
@@ -45,10 +44,11 @@ public class XMLparser {
 		}
 		doc = null;
 		try {
-			doc = builder.parse(new File("xml/Clients.xml"));
+			doc = builder.parse(getClass().getClassLoader().getResourceAsStream("clients.xml"));
 		} catch (SAXException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
 		node = doc.getDocumentElement();
 		nodeList = node.getChildNodes();
@@ -170,10 +170,11 @@ public class XMLparser {
 		}
 		doc = null;
 		try {
-			doc = builder.parse(new File("xml/config.xml"));
+			doc = builder.parse(getClass().getClassLoader().getResourceAsStream("config.xml"));
 		} catch (SAXException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Конфигурационный файл поврежден или не найден");
 		}
 		node = doc.getDocumentElement();
 		nodeList = node.getChildNodes();

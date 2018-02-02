@@ -2,9 +2,6 @@ package com.invoice.client;
 
 import java.util.ArrayList;
 
-import com.invoice.client.Delivery;
-import com.invoice.client.ReloadCartridge;
-
 public class Client {
 	
 	private ArrayList<Delivery> deliveries = new ArrayList<Delivery>();

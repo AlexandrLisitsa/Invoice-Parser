@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 
 import javax.swing.JFileChooser;
@@ -15,6 +16,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
+import com.invoice.calendar.InvoiceCalendar;
 import com.invoice.client.Addition;
 import com.invoice.client.Client;
 
@@ -49,7 +51,8 @@ public class AdditionParse {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		Sheet sheet = wb.getSheetAt(0);
+		
+		Sheet sheet = wb.getSheet("Долги");
 		Iterator<Row> it = sheet.iterator();
 		while (it.hasNext()) {
 			Row row = it.next();
@@ -98,9 +101,18 @@ public class AdditionParse {
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+					}
+		Sheet sheet = getMonthSheet(wb);
+		Iterator<Row> it=null;
+		try{
+			it=sheet.iterator();
+			it.hasNext();
+		}catch (Exception e) {
+			Calendar c = Calendar.getInstance();
+			JOptionPane.showMessageDialog(null, "Не найден лист допов за "+InvoiceCalendar.getMonth(c.get(Calendar.MONTH)-1, "rus"));
+			System.exit(0);
 		}
-		Sheet sheet = wb.getSheetAt(1);
-		Iterator<Row> it = sheet.iterator();
+		
 		while (it.hasNext()) {
 			Row row = it.next();
 			for (int i = 0; i < clients.size(); i++) {
@@ -119,5 +131,18 @@ public class AdditionParse {
 				}
 			}
 		}
+	}
+
+	private Sheet getMonthSheet(Workbook book) {
+		Calendar calendar =	Calendar.getInstance();
+		for(int i=0;i<book.getNumberOfSheets();i++) {
+			Sheet sheetIT = book.getSheetAt(i);
+			String fMonth = sheetIT.getSheetName().toLowerCase();
+			String sMonth = InvoiceCalendar.getMonth(calendar.get(Calendar.MONTH)-1, "rus").toLowerCase();	
+			if(fMonth.contains(sMonth)) {
+				return sheetIT;				
+			}
+		}
+		return null;
 	}
 }

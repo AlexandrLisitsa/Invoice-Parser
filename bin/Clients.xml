@@ -326,7 +326,7 @@
 	
 	
 	<Client name="Швейка">
-		<location>z:\Счета\22_Швейная Б 2300\12_Акты_швейка\</location>
+		<location>z:\Счета\22_Швейная Б 2300\1_Акты_швейка\</location>
 		<upperActTitle>Акт выполненных работ № 22</upperActTitle>
 		<lowerActTitle>Выдан ФЛП Левина Т.М. </lowerActTitle>
 		<services>
@@ -353,7 +353,7 @@
 	</Client>
 	
 	<Client name="Швейка(ткани1)">
-		<location>z:\Счета\22_Швейная Б 2300\12_Акты_швейка\</location>
+		<location>z:\Счета\22_Швейная Б 2300\1_Акты_швейка\</location>
 		<upperActTitle>Акт выполненных работ № 22-3</upperActTitle>
 		<lowerActTitle>Выдан ФЛП Волынская Т.С. </lowerActTitle>
 		<services>
@@ -377,7 +377,7 @@
 	</Client>
 	
 	<Client name="Швейка(ткани2)">
-		<location>z:\Счета\22_Швейная Б 2300\12_Акты_швейка\</location>
+		<location>z:\Счета\22_Швейная Б 2300\1_Акты_швейка\</location>
 		<upperActTitle>Акт выполненных работ № 22-5</upperActTitle>
 		<lowerActTitle>Выдан ФОП Капулер С.Б. </lowerActTitle>
 		<requisite>
@@ -403,7 +403,7 @@
 	</Client>
 	
 	<Client name="Швейка(ЗП)">
-		<location>z:\Счета\22_Швейная Б 2300\12_Акты_швейка\</location>
+		<location>z:\Счета\22_Швейная Б 2300\1_Акты_швейка\</location>
 		<upperActTitle>Акт выполненных работ № 22-2</upperActTitle>
 		<lowerActTitle>Выдан ФЛП ФЛП Левина Н.И. </lowerActTitle>
 		<services>
@@ -427,7 +427,7 @@
 	</Client>
 	
 	<Client name="Швейка(КР)">
-		<location>z:\Счета\22_Швейная Б 2300\12_Акты_швейка\</location>
+		<location>z:\Счета\22_Швейная Б 2300\1_Акты_швейка\</location>
 		<upperActTitle>Акт выполненных работ № 22-4</upperActTitle>
 		<lowerActTitle>Выдан Московская И.С. </lowerActTitle>
 		<services>
@@ -1436,14 +1436,14 @@
 	<lowerActTitle>Выдан Мищенко </lowerActTitle>
 	<location>z:\Счета\73_Мищенко\</location>
 	<services>
-		<server description="Аренда сервера 30 евро по курсу 33.31" count="1" cost="33.31*30*1.05" />
+		<server description="Аренда сервера 33.7 евро по курсу 33.31" count="1" cost="33.31*33.7*1.05" />
 	</services>
 	</Client>
 	
 	<Client name="Гермес">
 		<upperActTitle>Счет№72</upperActTitle>
 		<lowerActTitle>Выдан Гермес Гранд ВолТим</lowerActTitle>
-		<location>Z:\Счета72_Гермес Гранд ВолТим\</location>
+		<location>Z:\Счета\72_Гермес Гранд ВолТим\</location>
 		<services>
 			<server description="Аренда сервера" count="1" cost="58.82*33.31*1.05" />
 		</services>

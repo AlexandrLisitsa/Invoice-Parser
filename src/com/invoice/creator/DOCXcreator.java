@@ -21,11 +21,11 @@ import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTblPr;
 
+import com.invoice.calendar.InvoiceCalendar;
 import com.invoice.client.Addition;
 import com.invoice.client.Client;
 import com.invoice.client.Delivery;
 import com.invoice.client.ReloadCartridge;
-import com.invoice.month.Months;
 
 public class DOCXcreator {
 
@@ -215,13 +215,13 @@ public class DOCXcreator {
 				} else if (col == 2) {
 					table.getRow(row).getCell(col).getCTTc().addNewTcPr().addNewTcW().setW(BigInteger.valueOf(905));
 					if (row == 0) {
-						table.getRow(row).getCell(col).setText(Months.getMonth(prevMonth, "rus"));
+						table.getRow(row).getCell(col).setText(InvoiceCalendar.getMonth(prevMonth, "rus"));
 					}
 					if (row == 1) {
-						table.getRow(row).getCell(col).setText(Months.getMonth(currMonth, "rus"));
+						table.getRow(row).getCell(col).setText(InvoiceCalendar.getMonth(currMonth, "rus"));
 					}
 					if (row == 2) {
-						table.getRow(row).getCell(col).setText(Months.getMonth(nextMonth, "rus"));
+						table.getRow(row).getCell(col).setText(InvoiceCalendar.getMonth(nextMonth, "rus"));
 					} else if (col == 4) {
 
 					}
@@ -285,8 +285,8 @@ public class DOCXcreator {
 		run.setFontSize(16);
 		run.setFontFamily("times new roman");
 		run.setBold(true);
-		run.setText(client.getLowerActTitle() + " за " + Months.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
-				+ calendar.get(Calendar.YEAR) + " г.");
+		run.setText(client.getLowerActTitle() + " за " + InvoiceCalendar.getMonth(calendar.getTime().getMonth() - 1, "rus") + " "
+				+ Integer.valueOf(calendar.get(Calendar.YEAR)) + " г.");
 		// акт является счетом
 		if (!client.isAct()) {
 			paragraph = doc.createParagraph();
@@ -418,8 +418,8 @@ public class DOCXcreator {
 
 			int month = calendar.get(Calendar.MONTH) + 1;
 			doc.write(new FileOutputStream(
-					new File("C:\\Users\\wypik\\Desktop\\invoices\\DOCX\\" + month + "_" + client.getClientName() + ".docx"))
-					//new File(client.getLocation()+month+"_"+ client.getClientName() + ".docx"))
+					//new File("C:\\Users\\wypik\\Desktop\\invoices\\DOCX\\" + month + "_" + client.getClientName() + ".docx"))
+					new File(client.getLocation()+month+"_"+ client.getClientName() + ".docx"))
 			);
 			doc.close();
 
